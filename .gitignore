@@ -1,0 +1,7 @@
+.gh-config/
+config.ini
+PnPout/
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
