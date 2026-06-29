@@ -15,6 +15,26 @@ var highlightedNet = null;
 var lastClicked;
 var startupOverlayShownAt = Date.now();
 
+function setStartupBlackholeTarget() {
+  var overlay = document.getElementById("startupOverlay");
+  var bomdiv = document.getElementById("bomdiv");
+  var root = document.getElementById("topmostdiv");
+  if (!overlay || !bomdiv || !root) {
+    return;
+  }
+  var rect = bomdiv.getBoundingClientRect();
+  var cx = rect.left + rect.width / 2;
+  var cy = rect.top + rect.height / 2;
+  overlay.style.setProperty("--bh-x", cx + "px");
+  overlay.style.setProperty("--bh-y", cy + "px");
+  var size = Math.max(200, Math.min(280, rect.width * 0.66));
+  overlay.style.setProperty("--bh-size", size + "px");
+  root.style.setProperty("--bh-vx", cx + "px");
+  root.style.setProperty("--bh-vy", cy + "px");
+  document.documentElement.style.setProperty("--bh-vx", cx + "px");
+  document.documentElement.style.setProperty("--bh-vy", cy + "px");
+}
+
 function syncStartupOverlayTheme() {
   var overlay = document.getElementById("startupOverlay");
   var root = document.getElementById("topmostdiv");
@@ -49,6 +69,7 @@ function initStartupOverlay() {
   }
   document.body.classList.add("startup-active");
   syncStartupOverlayTheme();
+  setStartupBlackholeTarget();
   var title = document.getElementById("startupTitle");
   var subtitle = document.getElementById("startupSubtitle");
   if (title && pcbdata && pcbdata.metadata && pcbdata.metadata.title) {
@@ -63,9 +84,9 @@ function initStartupOverlay() {
       meta.push("Rev " + pcbdata.metadata.revision);
     }
     if (!meta.length) {
-      meta.push("Interactive board view");
+      meta.push("Interactive BOM");
     }
-    subtitle.textContent = meta.join(" · ") + " is opening with BOM and board canvas";
+    subtitle.textContent = meta.join(" · ") + " is opening";
   }
 }
 
@@ -75,7 +96,7 @@ function dismissStartupOverlay() {
     return;
   }
   var elapsed = Date.now() - startupOverlayShownAt;
-  var wait = Math.max(0, 1500 - elapsed);
+  var wait = Math.max(0, 850 - elapsed);
   setTimeout(function() {
     overlay.classList.add("startup-overlay-hidden");
     document.body.classList.remove("startup-active");
@@ -83,7 +104,7 @@ function dismissStartupOverlay() {
       if (overlay && overlay.parentNode) {
         overlay.parentNode.removeChild(overlay);
       }
-    }, 900);
+    }, 450);
   }, wait);
 }
 
@@ -732,9 +753,6 @@ function populateMetadata() {
   document.getElementById("revision").innerHTML = t("rev_prefix") + pcbdata.metadata.revision;
   document.getElementById("company").innerHTML = pcbdata.metadata.company;
   document.getElementById("filedate").innerHTML = pcbdata.metadata.date;
-  document.getElementById("htmlversion").innerHTML =
-    t("html_version_prefix") + "InteractiveHtmlBomForAD " + adScriptVersion +
-    " / InteractiveHtmlBom " + pcbdata.ibom_version;
   if (pcbdata.metadata.title != "") {
     document.title = pcbdata.metadata.title + t("bom_title_suffix");
   }
@@ -1086,6 +1104,7 @@ window.onload = function(e) {
   initStorage();
   initDefaults();
   syncStartupOverlayTheme();
+  setStartupBlackholeTarget();
   cleanGutters();
   populateMetadata();
   dbgdiv = document.getElementById("dbg");
@@ -1100,6 +1119,7 @@ window.onload = function(e) {
   prepCheckboxes();
   // Triggers render
   changeBomLayout(settings.bomlayout);
+  setStartupBlackholeTarget();
 
   // Users may leave fullscreen without touching the checkbox. Uncheck.
   document.addEventListener('fullscreenchange', () => {

@@ -228,7 +228,7 @@ body.startup-active {
   backdrop-filter: blur(10px) saturate(115%);
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.85s ease, visibility 0.85s ease;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .startup-overlay.dark,
@@ -289,7 +289,63 @@ body.startup-active {
 }
 
 .startup-overlay-beams {
-  filter: blur(1px);
+  display: none;
+}
+
+.startup-blackhole {
+  position: absolute;
+  left: var(--bh-x, 30vw);
+  top: var(--bh-y, 50vh);
+  width: var(--bh-size, clamp(200px, 22vw, 280px));
+  height: var(--bh-size, clamp(200px, 22vw, 280px));
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.92) 42%,
+      rgba(0, 0, 0, 0.60) 54%,
+      rgba(0, 0, 0, 0.0) 66%);
+  filter: blur(0.2px);
+  opacity: 0;
+  animation: startupBlackholeIn 1.2s ease both;
+}
+
+.startup-blackhole::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 180deg,
+      rgba(120, 119, 255, 0.0),
+      rgba(120, 119, 255, 0.18),
+      rgba(0, 214, 201, 0.22),
+      rgba(255, 255, 255, 0.12),
+      rgba(120, 119, 255, 0.14),
+      rgba(0, 214, 201, 0.0));
+  filter: blur(10px);
+  opacity: 0.0;
+  mix-blend-mode: screen;
+  animation: startupDiskSpin 1.2s linear both;
+}
+
+.startup-blackhole::after {
+  content: "";
+  position: absolute;
+  inset: -6%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(255, 255, 255, 0.0) 44%,
+      rgba(255, 255, 255, 0.12) 52%,
+      rgba(0, 214, 201, 0.10) 58%,
+      rgba(120, 119, 255, 0.06) 66%,
+      rgba(255, 255, 255, 0.0) 74%);
+  filter: blur(2px);
+  opacity: 0.0;
+  animation: startupRingGlow 1.2s ease both;
 }
 
 .startup-beam {
@@ -327,11 +383,10 @@ body.startup-active {
 
 .startup-overlay-content {
   position: absolute;
-  top: 12vh;
-  left: 50%;
+  top: calc(var(--bh-y, 50vh) - 240px);
+  left: var(--bh-x, 30vw);
   z-index: 1;
-  width: clamp(560px, 62vw, 760px);
-  max-width: calc(100vw - 44px);
+  width: min(520px, calc(100vw - 44px));
   padding: 0;
   border: 0;
   background: transparent;
@@ -369,7 +424,7 @@ body.startup-active {
 .startup-title {
   margin: 16px 0 8px;
   color: inherit;
-  font-size: clamp(44px, 6vw, 72px);
+  font-size: clamp(34px, 4.2vw, 52px);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -402,6 +457,62 @@ body.startup-active {
   100% {
     transform: translateX(95vw) rotate(-8deg);
     opacity: 0;
+  }
+}
+
+@keyframes startupBlackholeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.42);
+    filter: blur(3px);
+  }
+  20% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0.2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.12);
+    filter: blur(4px);
+  }
+}
+
+@keyframes startupDiskSpin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.8;
+  }
+  72% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: rotate(220deg);
+    opacity: 0;
+  }
+}
+
+@keyframes startupRingGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  28% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
   }
 }
 
@@ -1101,12 +1212,14 @@ mark.highlight {
   height: 100%;
   background-color: var(--ui-bg);
   color: var(--ui-text);
-  transition: background-color 0.3s, opacity 0.45s ease, transform 0.45s ease;
+  clip-path: circle(200vmax at var(--bh-vx, 30vw) var(--bh-vy, 50vh));
+  transition: background-color 0.3s, opacity 0.45s ease, transform 0.45s ease, clip-path 0.95s cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 
 body.startup-active .topmostdiv {
   opacity: 1;
   transform: none;
+  clip-path: circle(0px at var(--bh-vx, 30vw) var(--bh-vy, 50vh));
 }
 
 body.startup-active #top,
@@ -1115,15 +1228,9 @@ body.startup-active #bot {
 }
 
 body.startup-active #top {
-  opacity: 0.72;
-  transform: translateY(-8px);
-  filter: blur(3px);
-}
-
-body.startup-active #bot {
-  opacity: 0.44;
-  transform: translateY(14px) scale(0.992);
-  filter: blur(8px);
+  opacity: 0.78;
+  transform: translateY(-6px);
+  filter: blur(2px);
 }
 
 body.startup-active #fileinfodiv {
@@ -1132,8 +1239,14 @@ body.startup-active #fileinfodiv {
   transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
 }
 
+body.startup-active #canvasdiv {
+  opacity: 0.28;
+  transform: translateY(18px) scale(0.99);
+  filter: blur(10px);
+  transition: opacity 0.65s ease, transform 0.65s ease, filter 0.65s ease;
+}
+
 .startup-overlay-hidden + .topmostdiv #top,
-.startup-overlay-hidden + .topmostdiv #bot,
 .startup-overlay-hidden + .topmostdiv #fileinfodiv {
   opacity: 1;
   transform: none;

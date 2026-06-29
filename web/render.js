@@ -685,7 +685,7 @@ function bboxHitScan(layer, x, y) {
 }
 
 function handlePointerDown(e, layerdict) {
-  if (e.button != 0 && e.button != 1) {
+  if (e.button != 0 && e.button != 1 && e.button != 2) {
     return;
   }
   e.preventDefault();
@@ -764,16 +764,22 @@ function handlePointerUp(e, layerdict) {
   e.preventDefault();
   e.stopPropagation();
 
-  if (e.button == 2) {
-    // Reset pan and zoom on right click.
-    resetTransform(layerdict);
-    layerdict.anotherPointerTapped = false;
-    return;
-  }
-
   // We haven't necessarily had a pointermove event since the interaction started, so make sure we update this now
   var ptr = layerdict.pointerStates[e.pointerId];
   ptr.distanceTravelled += Math.abs(e.offsetX - ptr.lastX) + Math.abs(e.offsetY - ptr.lastY);
+
+  if (e.button == 2) {
+    if (ptr.distanceTravelled < 10 && Date.now() - ptr.downTime <= 500) {
+      resetTransform(layerdict);
+    } else {
+      if (!settings.redrawOnDrag) {
+        redrawCanvas(layerdict);
+      }
+    }
+    layerdict.anotherPointerTapped = false;
+    delete layerdict.pointerStates[e.pointerId];
+    return;
+  }
 
   if (e.button == 0 && ptr.distanceTravelled < 10 && Date.now() - ptr.downTime <= 500) {
     if (Object.keys(layerdict.pointerStates).length == 1) {
