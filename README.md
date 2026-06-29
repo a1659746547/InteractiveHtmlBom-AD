@@ -9,6 +9,31 @@ workflow usable from Altium script projects.
 `InteractiveHtmlBom` 改进版。项目保留了交互式 HTML BOM 的核心体验，并把
 导出流程适配到了 AD 脚本环境中，方便直接从 PCB 文档生成可交互的装配页面。
 
+## Screenshots / 界面展示
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="PNG/2a642c23578e560da984fb558d793af2.png" alt="Apple theme preview" width="100%" />
+      <br />
+      <strong>Apple Theme Preview / Apple 风主题预览</strong>
+      <br />
+      Shows the polished Apple-style interface, compact controls and multilingual selector.
+      <br />
+      展示 Apple 风整体界面、更紧凑的控制区，以及多语言选择器效果。
+    </td>
+    <td align="center" width="50%">
+      <img src="PNG/9225a04a8338a91f957d3ac78e2a8080.png" alt="Light theme preview" width="100%" />
+      <br />
+      <strong>Light Theme Preview / 浅色主题预览</strong>
+      <br />
+      Highlights the clean light layout, simplified info panel and optimized BOM viewing experience.
+      <br />
+      展示浅色主题下更清爽的布局、简化后的信息区，以及优化后的 BOM 浏览体验。
+    </td>
+  </tr>
+</table>
+
 ## Compatibility / 兼容性
 
 - Altium Designer: tested on AD10 and AD24.
