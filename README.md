@@ -1,17 +1,27 @@
 # InteractiveHtmlBom-AD
 
-`InteractiveHtmlBom-AD` is an Altium Designer / AD10 oriented adaptation of
+`InteractiveHtmlBom-AD` is an Altium Designer script oriented adaptation of
 [InteractiveHtmlBom](https://github.com/openscopeproject/InteractiveHtmlBom).
 It keeps the familiar interactive HTML BOM experience while making the export
 workflow usable from Altium script projects.
 
-`InteractiveHtmlBom-AD` 是一个面向 Altium Designer / AD10 的
+`InteractiveHtmlBom-AD` 是一个面向 Altium Designer 脚本环境的
 `InteractiveHtmlBom` 改进版。项目保留了交互式 HTML BOM 的核心体验，并把
 导出流程适配到了 AD 脚本环境中，方便直接从 PCB 文档生成可交互的装配页面。
 
+## Compatibility
+
+- Altium Designer: tested on AD10 and AD24
+- Script entry points: `startWin()` (GUI) and `main()` (direct export)
+
+## 兼容性
+
+- Altium Designer：已在 AD10 与 AD24 实测可用
+- 脚本入口：`startWin()`（界面）与 `main()`（无界面直接导出）
+
 ## Highlights
 
-- Supports AD10 / Altium script workflow
+- Supports Altium Designer script workflow (tested on AD10 and AD24)
 - Provides both GUI mode and direct script export mode
 - Exports interactive HTML BOM for assembly and inspection
 - Includes extra export helpers for JSON, TXT BOM and CSV PnP
