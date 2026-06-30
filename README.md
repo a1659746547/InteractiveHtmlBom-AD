@@ -33,16 +33,14 @@ workflow usable from Altium script projects.
     </td>
   </tr>
   <tr>
-    <td align="center" width="50%">
-      <img src="PNG/923ebba9811cc265f6ae3014a59a45a6.png" alt="AD export window preview" width="100%" />
+    <td align="center" colspan="2">
+      <img src="PNG/923ebba9811cc265f6ae3014a59a45a6.png" alt="AD export window preview" width="72%" />
       <br />
       <strong>AD Export Window / AD 导出窗口</strong>
       <br />
       Shows the bilingual AD export panel, grouped layout and primary export action.
       <br />
       展示 AD 导出窗口的中英文切换、分组布局，以及底部主导出按钮。
-    </td>
-    <td align="center" width="50%">
     </td>
   </tr>
 </table>
