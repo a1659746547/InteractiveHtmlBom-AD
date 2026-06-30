@@ -1,15 +1,18 @@
 object mainWin: TmainWin
   Left = 109
   Top = 6
+  BorderStyle = bsSizeable
   Cursor = crArrow
-  Caption = 'InteractiveHtmlBom v0.3'
-  ClientHeight = 452
+  Caption = 'Interactive BOM'
+  ClientHeight = 500
   ClientWidth = 452
   Color = clBtnFace
+  Constraints.MinHeight = 500
+  Constraints.MinWidth = 452
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Scaled = False
@@ -21,23 +24,55 @@ object mainWin: TmainWin
     Left = 8
     Top = 8
     Width = 440
-    Height = 440
+    Height = 488
     ActivePage = TabSheet1
+    Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'General'
-      object GroupBox1: TGroupBox
+      object GroupBoxLang: TGroupBox
         Left = 7
         Top = 9
         Width = 413
-        Height = 63
-        Caption = 'Bom destination'
+        Height = 53
+        Anchors = [akLeft, akTop, akRight]
+        Caption = 'Language'
         TabOrder = 0
+        object RBtnLangZh: TRadioButton
+          Left = 14
+          Top = 24
+          Width = 69
+          Height = 17
+          Caption = 'Chinese'
+          Checked = True
+          TabOrder = 0
+          TabStop = True
+          OnClick = LangRadioClick
+        end
+        object RBtnLangEn: TRadioButton
+          Left = 96
+          Top = 24
+          Width = 69
+          Height = 17
+          Caption = 'English'
+          TabOrder = 1
+          OnClick = LangRadioClick
+        end
+      end
+      object GroupBox1: TGroupBox
+        Left = 7
+        Top = 69
+        Width = 413
+        Height = 63
+        Anchors = [akLeft, akTop, akRight]
+        Caption = 'Bom destination'
+        TabOrder = 1
         object BtnSave: TButton
           Left = 373
           Top = 22
           Width = 32
           Height = 26
+          Anchors = [akTop, akRight]
           Caption = '...'
           TabOrder = 0
           OnClick = BtnSaveClick
@@ -47,25 +82,27 @@ object mainWin: TmainWin
           Top = 24
           Width = 304
           Height = 21
+          Anchors = [akLeft, akTop, akRight]
           ReadOnly = True
           TabOrder = 1
         end
       end
       object StaticText1: TStaticText
         Left = 18
-        Top = 37
-        Width = 48
+        Top = 96
+        Width = 39
         Height = 17
-        Caption = 'Directory'
-        TabOrder = 1
+        Caption = 'Output'
+        TabOrder = 2
       end
       object GroupBox3: TGroupBox
         Left = 7
-        Top = 81
+        Top = 140
         Width = 413
         Height = 95
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Additional pcb data'
-        TabOrder = 2
+        TabOrder = 3
         object CbIncludeTracksAndSolidPolygons: TCheckBox
           Left = 14
           Top = 31
@@ -103,11 +140,12 @@ object mainWin: TmainWin
       end
       object GroupBox4: TGroupBox
         Left = 7
-        Top = 185
+        Top = 242
         Width = 413
         Height = 103
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Component blacklist '
-        TabOrder = 3
+        TabOrder = 4
         object CbBlacklistEmpty: TCheckBox
           Left = 14
           Top = 35
@@ -139,20 +177,12 @@ object mainWin: TmainWin
           TabOrder = 2
         end
       end
-      object GenerateBom: TButton
-        Left = 336
-        Top = 371
-        Width = 80
-        Height = 25
-        Caption = 'GenerateBom'
-        TabOrder = 4
-        OnClick = GenerateBomClick
-      end
       object GroupBox10: TGroupBox
         Left = 7
-        Top = 297
+        Top = 353
         Width = 413
         Height = 58
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Pcb outline layer'
         TabOrder = 5
         object RBtnKeepOutLayer: TRadioButton
@@ -172,6 +202,44 @@ object mainWin: TmainWin
           TabOrder = 1
         end
       end
+      object GroupBox8: TGroupBox
+        Left = 7
+        Top = 417
+        Width = 413
+        Height = 52
+        Anchors = [akLeft, akRight, akBottom]
+        Caption = 'Export'
+        TabOrder = 6
+        object CbOpenBrowser: TCheckBox
+          Left = 14
+          Top = 21
+          Width = 94
+          Height = 17
+          Caption = 'Open browser'
+          TabOrder = 0
+        end
+        object CbOpenExplorer: TCheckBox
+          Left = 118
+          Top = 21
+          Width = 94
+          Height = 17
+          Caption = 'Open explorer'
+          Checked = True
+          State = cbChecked
+          TabOrder = 1
+        end
+        object GenerateBom: TButton
+          Left = 305
+          Top = 14
+          Width = 100
+          Height = 26
+          Anchors = [akTop, akRight]
+          Caption = 'Export HTML'
+          Default = True
+          TabOrder = 2
+          OnClick = GenerateBomClick
+        end
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Html defaults'
@@ -184,6 +252,7 @@ object mainWin: TmainWin
         Top = 15
         Width = 87
         Height = 17
+        Anchors = [akLeft, akTop]
         Caption = 'Dark mode'
         TabOrder = 0
       end
@@ -192,6 +261,7 @@ object mainWin: TmainWin
         Top = 15
         Width = 118
         Height = 17
+        Anchors = [akLeft, akTop]
         Caption = 'Show footprint pads'
         Checked = True
         State = cbChecked
@@ -202,6 +272,7 @@ object mainWin: TmainWin
         Top = 15
         Width = 134
         Height = 17
+        Anchors = [akTop, akRight]
         Caption = 'Show fabrication layer'
         TabOrder = 2
       end
@@ -210,6 +281,7 @@ object mainWin: TmainWin
         Top = 47
         Width = 94
         Height = 17
+        Anchors = [akLeft, akTop]
         Caption = 'Show silkscreen'
         Checked = True
         State = cbChecked
@@ -220,6 +292,7 @@ object mainWin: TmainWin
         Top = 47
         Width = 102
         Height = 17
+        Anchors = [akLeft, akTop]
         Caption = 'Highlight first pin'
         TabOrder = 4
       end
@@ -228,6 +301,7 @@ object mainWin: TmainWin
         Top = 47
         Width = 158
         Height = 17
+        Anchors = [akTop, akRight]
         Caption = 'Continuous redraw on drag'
         Checked = True
         State = cbChecked
@@ -238,6 +312,7 @@ object mainWin: TmainWin
         Top = 95
         Width = 415
         Height = 20
+        Anchors = [akLeft, akTop, akRight]
         Max = 72
         Position = 36
         SelEnd = 0
@@ -250,6 +325,7 @@ object mainWin: TmainWin
         Top = 121
         Width = 413
         Height = 58
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Checkboxes'
         TabOrder = 7
         object TEditHtmlCheckboxes: TEdit
@@ -257,6 +333,7 @@ object mainWin: TmainWin
           Top = 24
           Width = 304
           Height = 21
+          Anchors = [akLeft, akTop, akRight]
           TabOrder = 0
           Text = 'Sourced,Placed'
         end
@@ -282,6 +359,7 @@ object mainWin: TmainWin
         Top = 193
         Width = 413
         Height = 58
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'BOM View'
         TabOrder = 10
         object RBtnBomOnly: TRadioButton
@@ -316,6 +394,7 @@ object mainWin: TmainWin
         Top = 265
         Width = 413
         Height = 58
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Layer View'
         TabOrder = 11
         object RBtnFrontAndBack: TRadioButton
@@ -345,34 +424,6 @@ object mainWin: TmainWin
           TabOrder = 2
         end
       end
-      object GroupBox8: TGroupBox
-        Left = 7
-        Top = 337
-        Width = 413
-        Height = 58
-        Caption = 'Other'
-        TabOrder = 12
-        object CbOpenBrowser: TCheckBox
-          Left = 14
-          Top = 25
-          Width = 94
-          Height = 17
-          Caption = 'Open browser'
-          Enabled = False
-          TabOrder = 0
-        end
-        object CbOpenExplorer: TCheckBox
-          Left = 118
-          Top = 25
-          Width = 94
-          Height = 17
-          Caption = 'Open explorer'
-          Checked = True
-          Enabled = False
-          State = cbChecked
-          TabOrder = 1
-        end
-      end
     end
     object TabSheet3: TTabSheet
       Caption = 'Extra fields'
@@ -385,6 +436,7 @@ object mainWin: TmainWin
         Top = 9
         Width = 413
         Height = 63
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Extra file (not implemeted)'
         TabOrder = 0
         object TEditExtraFileName: TEdit
@@ -392,6 +444,7 @@ object mainWin: TmainWin
           Top = 24
           Width = 352
           Height = 21
+          Anchors = [akLeft, akTop, akRight]
           HelpType = htKeyword
           ReadOnly = True
           TabOrder = 0
@@ -401,6 +454,7 @@ object mainWin: TmainWin
           Top = 22
           Width = 32
           Height = 26
+          Anchors = [akTop, akRight]
           Caption = '...'
           TabOrder = 1
           OnClick = BtnOpenClick
@@ -418,6 +472,7 @@ object mainWin: TmainWin
         Top = 9
         Width = 413
         Height = 359
+        Anchors = [akLeft, akTop, akRight, akBottom]
         Caption = 'PCB tools'
         TabOrder = 0
       end

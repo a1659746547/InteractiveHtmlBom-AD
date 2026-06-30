@@ -325,6 +325,21 @@ function generateFile(compressed_pcbdata, config_js) {
     return html;
 }
 
+function promptOpenGeneratedHtml(filename) {
+    var shell = new ActiveXObject("WScript.Shell");
+    var choice = shell.Popup(
+        "\u5bfc\u51fa\u6210\u529f\uff0c\u662f\u5426\u6253\u5f00\u6d4f\u89c8\u5668\uff1f\n\n\u662f\uff1a\u6d4f\u89c8\u5668\u6253\u5f00 HTML\n\u5426\uff1a\u6253\u5f00\u8f93\u51fa\u6587\u4ef6\u5939\n\u53d6\u6d88\uff1a\u4e0d\u6253\u5f00",
+        0,
+        "InteractiveHtmlBomForAD",
+        3 + 32
+    );
+    if (choice == 6) {
+        RunApplication('explorer.exe "' + filename + '"');
+    } else if (choice == 7) {
+        RunApplication('explorer.exe "' + ExtractFilePath(filename) + '"');
+    }
+}
+
 
 function loadExtraData(filename) {
     var s = loadfile(filename);
@@ -353,40 +368,13 @@ function loadExtraData(filename) {
 
 
 function main() {
-    var config = getConfig();
-    var pcb = parsePcb(config);
-    if (!pcb) {
-        return;
-    };
-    
-    var filename = pcb.boardpath + "PnPout\\" + "extra_data.txt";
-    // var extra_data = loadExtraData(filename);
-    var extra_data;
-
-    pcb.pcbdata["bom"] = generateBom(pcb, config, extra_data);
-    pcb.pcbdata["ibom_version"] = "v2.3";
-
-    // var t1 = new Date().getTime();
-
-    var s = JSON.stringify(pcb.pcbdata);
-    // var t2 = new Date().getTime();
-    var b = LZStr.compressToBase64(s);
-    // var t3 = new Date().getTime();
-    // showmessage("t1: "+String(t1-t0)+"   t2: "+String(t2-t1)+"   t3: "+String(t3-t2));
-
-    b = 'var pcbdata = JSON.parse(LZString.decompressFromBase64("' + b + '"))';
-
-    var config_js = "var config = " + JSON.stringify(config.htmlConfig);
-    var html = generateFile(b, config_js);
-    filename = pcb.boardpath + "PnPout\\" + pcb.boardname.split(".")[0] + ".html";
-    save2file(html, filename, false);
-
     try {
-        var commandline = "explorer.exe " + ExtractFilePath(filename);
-        var errcode = RunApplication(commandline);
+        if (typeof startWin === "function") {
+            startWin();
+            return;
+        }
     }
     catch(e) {
-        showmessage(e.message);
-    };
+    }
+    showmessage("\u8bf7\u8fd0\u884c mainWin.js \u4e2d\u7684 startWin\uff0c\u4f7f\u7528\u5e26\u9009\u9879\u7684\u5bfc\u51fa\u7a97\u53e3");
 }
-

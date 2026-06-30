@@ -32,6 +32,19 @@ workflow usable from Altium script projects.
       展示浅色主题下更清爽的布局、简化后的信息区，以及优化后的 BOM 浏览体验。
     </td>
   </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="PNG/923ebba9811cc265f6ae3014a59a45a6.png" alt="AD export window preview" width="100%" />
+      <br />
+      <strong>AD Export Window / AD 导出窗口</strong>
+      <br />
+      Shows the bilingual AD export panel, grouped layout and primary export action.
+      <br />
+      展示 AD 导出窗口的中英文切换、分组布局，以及底部主导出按钮。
+    </td>
+    <td align="center" width="50%">
+    </td>
+  </tr>
 </table>
 
 ## Compatibility / 兼容性
@@ -98,7 +111,10 @@ After opening the GUI, you can:
 - Toggle pads, silkscreen, fabrication layer and dark mode options.
   切换焊盘、丝印、制造层、深色模式等显示选项。
 - Generate HTML BOM and open the output folder.
-  生成 HTML BOM 并打开输出目录。
+  生成 HTML BOM，并可按设置打开浏览器或输出目录。
+
+- Switch the AD export window between `中文 / English`.
+  在 AD 导出窗口中切换 `中文 / English` 界面语言。
 
 Generated files are typically written into a `PnPout` directory near the current
 PCB document.
@@ -162,6 +178,27 @@ PCB document.
   已改为更清晰、更适合中文用户理解的提示。
 - Removed the version row from the generated HTML page for a cleaner info panel.
   页面信息简化：移除了 HTML 页面里的版本显示行，使信息区更干净。
+- `main()` now redirects to the GUI workflow so the export options stay
+  consistent with `startWin()`.
+  `main()` 入口已改为跳转到 GUI 导出流程，避免与 `startWin()` 的导出选项分离。
+- Added bilingual AD export UI with `中文 / English` switching and remembered
+  language preference.
+  AD 导出窗口新增 `中文 / English` 双语切换，并会记住上次使用的界面语言。
+- Reorganized the AD export window into clearer sections such as `Language`,
+  `Save to`, `Board data`, `Component filters`, `Outline layer` and `Export`.
+  AD 导出窗口重新整理为更清晰的分组，例如 `Language`、`Save to`、`Board data`、
+  `Component filters`、`Outline layer`、`Export`，结构更直观。
+- Improved the AD export panel with a cleaner Apple-inspired layout, updated
+  typography, tighter spacing and a clearer primary `Export HTML` action.
+  AD 导出面板视觉优化：采用更简洁的 Apple 风布局思路，更新字体、收紧留白，并
+  增强 `Export HTML` 主按钮的识别度。
+- The AD export window is now resizable, with key controls stretching with the
+  window to avoid overlapping sections during resize.
+  AD 导出窗口现已支持拖动缩放，关键控件会随窗口拉伸，自适应避免分组互相遮挡。
+- Fixed export-panel layout issues where the export button could be hidden or
+  collide with the outline selection area after resizing.
+  修复导出区布局问题：解决窗口缩放后导出按钮被遮挡、以及板框层选择区域与其它
+  分组相互挤压的问题。
 
 ## Extra Export Tools / 额外导出工具
 

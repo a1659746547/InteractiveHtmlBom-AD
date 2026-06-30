@@ -15,26 +15,6 @@ var highlightedNet = null;
 var lastClicked;
 var startupOverlayShownAt = Date.now();
 
-function setStartupBlackholeTarget() {
-  var overlay = document.getElementById("startupOverlay");
-  var bomdiv = document.getElementById("bomdiv");
-  var root = document.getElementById("topmostdiv");
-  if (!overlay || !bomdiv || !root) {
-    return;
-  }
-  var rect = bomdiv.getBoundingClientRect();
-  var cx = rect.left + rect.width / 2;
-  var cy = rect.top + rect.height / 2;
-  overlay.style.setProperty("--bh-x", cx + "px");
-  overlay.style.setProperty("--bh-y", cy + "px");
-  var size = Math.max(200, Math.min(280, rect.width * 0.66));
-  overlay.style.setProperty("--bh-size", size + "px");
-  root.style.setProperty("--bh-vx", cx + "px");
-  root.style.setProperty("--bh-vy", cy + "px");
-  document.documentElement.style.setProperty("--bh-vx", cx + "px");
-  document.documentElement.style.setProperty("--bh-vy", cy + "px");
-}
-
 function syncStartupOverlayTheme() {
   var overlay = document.getElementById("startupOverlay");
   var root = document.getElementById("topmostdiv");
@@ -69,7 +49,6 @@ function initStartupOverlay() {
   }
   document.body.classList.add("startup-active");
   syncStartupOverlayTheme();
-  setStartupBlackholeTarget();
   var title = document.getElementById("startupTitle");
   var subtitle = document.getElementById("startupSubtitle");
   if (title && pcbdata && pcbdata.metadata && pcbdata.metadata.title) {
@@ -96,7 +75,7 @@ function dismissStartupOverlay() {
     return;
   }
   var elapsed = Date.now() - startupOverlayShownAt;
-  var wait = Math.max(0, 850 - elapsed);
+  var wait = Math.max(0, 1100 - elapsed);
   setTimeout(function() {
     overlay.classList.add("startup-overlay-hidden");
     document.body.classList.remove("startup-active");
@@ -1103,8 +1082,6 @@ window.onload = function(e) {
   initRender();
   initStorage();
   initDefaults();
-  syncStartupOverlayTheme();
-  setStartupBlackholeTarget();
   cleanGutters();
   populateMetadata();
   dbgdiv = document.getElementById("dbg");
@@ -1119,7 +1096,6 @@ window.onload = function(e) {
   prepCheckboxes();
   // Triggers render
   changeBomLayout(settings.bomlayout);
-  setStartupBlackholeTarget();
 
   // Users may leave fullscreen without touching the checkbox. Uncheck.
   document.addEventListener('fullscreenchange', () => {

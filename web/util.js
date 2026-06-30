@@ -465,9 +465,15 @@ var i18nDict = {
     theme_green: "Eye Care Green",
     language: "Language",
     lang_en: "English",
-    lang_zh: "Chinese",
-    lang_ja: "Japanese",
-    lang_ko: "Korean",
+    lang_zh: "中文",
+    lang_ja: "日本語",
+    lang_ko: "한국어",
+    lang_fr: "Français",
+    lang_de: "Deutsch",
+    lang_es: "Español",
+    lang_ru: "Русский",
+    lang_pt: "Português",
+    lang_it: "Italiano",
     language_search: "Search languages",
     dark_mode: "Dark mode",
     full_screen: "Full Screen",
@@ -541,10 +547,16 @@ var i18nDict = {
     theme_blue: "蓝灰",
     theme_green: "护眼绿",
     language: "语言",
-    lang_en: "英文",
+    lang_en: "English",
     lang_zh: "中文",
-    lang_ja: "日文",
-    lang_ko: "韩文",
+    lang_ja: "日本語",
+    lang_ko: "한국어",
+    lang_fr: "Français",
+    lang_de: "Deutsch",
+    lang_es: "Español",
+    lang_ru: "Русский",
+    lang_pt: "Português",
+    lang_it: "Italiano",
     language_search: "搜索语言",
     dark_mode: "深色模式",
     full_screen: "全屏",
@@ -622,6 +634,12 @@ var i18nDict = {
     lang_zh: "中文",
     lang_ja: "日本語",
     lang_ko: "한국어",
+    lang_fr: "Français",
+    lang_de: "Deutsch",
+    lang_es: "Español",
+    lang_ru: "Русский",
+    lang_pt: "Português",
+    lang_it: "Italiano",
     language_search: "言語を検索",
     dark_mode: "ダークモード",
     full_screen: "全画面",
@@ -699,6 +717,12 @@ var i18nDict = {
     lang_zh: "中文",
     lang_ja: "日本語",
     lang_ko: "한국어",
+    lang_fr: "Français",
+    lang_de: "Deutsch",
+    lang_es: "Español",
+    lang_ru: "Русский",
+    lang_pt: "Português",
+    lang_it: "Italiano",
     language_search: "언어 검색",
     dark_mode: "다크 모드",
     full_screen: "전체 화면",
@@ -777,6 +801,24 @@ function inferLang() {
     }
     if (lang.indexOf("ko") === 0) {
       return "ko";
+    }
+    if (lang.indexOf("fr") === 0) {
+      return "fr";
+    }
+    if (lang.indexOf("de") === 0) {
+      return "de";
+    }
+    if (lang.indexOf("es") === 0) {
+      return "es";
+    }
+    if (lang.indexOf("ru") === 0) {
+      return "ru";
+    }
+    if (lang.indexOf("pt") === 0) {
+      return "pt";
+    }
+    if (lang.indexOf("it") === 0) {
+      return "it";
     }
   } catch(e) {}
   return "en";
@@ -864,6 +906,18 @@ function applyI18n(lang) {
     htmlLang = "ja";
   } else if (lang == "ko") {
     htmlLang = "ko";
+  } else if (lang == "fr") {
+    htmlLang = "fr";
+  } else if (lang == "de") {
+    htmlLang = "de";
+  } else if (lang == "es") {
+    htmlLang = "es";
+  } else if (lang == "ru") {
+    htmlLang = "ru";
+  } else if (lang == "pt") {
+    htmlLang = "pt";
+  } else if (lang == "it") {
+    htmlLang = "it";
   }
   document.documentElement.lang = htmlLang;
   var nodes = document.querySelectorAll("[data-i18n]");
@@ -894,6 +948,8 @@ function filterLanguageOptions(query) {
   if (!sel) {
     return;
   }
+  // Keep the browser control in single-line dropdown mode.
+  sel.size = 1;
   var q = (query || "").trim().toLowerCase();
   for (var i = 0; i < sel.options.length; i++) {
     var opt = sel.options[i];
@@ -936,11 +992,12 @@ function initDefaults() {
   if (settings.lang === null) {
     settings.lang = inferLang();
   }
-  if (!["en", "zh", "ja", "ko"].includes(settings.lang)) {
+  if (!["en", "zh", "ja", "ko", "fr", "de", "es", "ru", "pt", "it"].includes(settings.lang)) {
     settings.lang = "en";
   }
   var langSelect = document.getElementById("langSelect");
   if (langSelect) {
+    langSelect.size = 1;
     langSelect.value = settings.lang;
   }
   filterLanguageOptions("");

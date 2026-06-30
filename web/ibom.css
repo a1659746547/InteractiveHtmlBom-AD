@@ -289,26 +289,12 @@ body.startup-active {
 }
 
 .startup-overlay-beams {
-  display: none;
+  display: block;
+  filter: blur(1px);
 }
 
 .startup-blackhole {
-  position: absolute;
-  left: var(--bh-x, 30vw);
-  top: var(--bh-y, 50vh);
-  width: var(--bh-size, clamp(200px, 22vw, 280px));
-  height: var(--bh-size, clamp(200px, 22vw, 280px));
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%,
-      rgba(0, 0, 0, 0.96) 0%,
-      rgba(0, 0, 0, 0.92) 42%,
-      rgba(0, 0, 0, 0.60) 54%,
-      rgba(0, 0, 0, 0.0) 66%);
-  filter: blur(0.2px);
-  opacity: 0;
-  animation: startupBlackholeIn 1.2s ease both;
+  display: none;
 }
 
 .startup-blackhole::before {
@@ -383,10 +369,11 @@ body.startup-active {
 
 .startup-overlay-content {
   position: absolute;
-  top: calc(var(--bh-y, 50vh) - 240px);
-  left: var(--bh-x, 30vw);
+  top: 12vh;
+  left: 50%;
   z-index: 1;
-  width: min(520px, calc(100vw - 44px));
+  width: clamp(560px, 62vw, 760px);
+  max-width: calc(100vw - 44px);
   padding: 0;
   border: 0;
   background: transparent;
@@ -424,7 +411,7 @@ body.startup-active {
 .startup-title {
   margin: 16px 0 8px;
   color: inherit;
-  font-size: clamp(34px, 4.2vw, 52px);
+  font-size: clamp(44px, 6vw, 72px);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -1133,6 +1120,9 @@ mark.highlight {
 .menu-select-full {
   width: 160px;
   flex: 0 0 auto;
+  height: 32px !important;
+  min-height: 32px;
+  max-height: 32px;
 }
 
 .menu-grid {
@@ -1212,14 +1202,7 @@ mark.highlight {
   height: 100%;
   background-color: var(--ui-bg);
   color: var(--ui-text);
-  clip-path: circle(200vmax at var(--bh-vx, 30vw) var(--bh-vy, 50vh));
-  transition: background-color 0.3s, opacity 0.45s ease, transform 0.45s ease, clip-path 0.95s cubic-bezier(0.2, 0.9, 0.2, 1);
-}
-
-body.startup-active .topmostdiv {
-  opacity: 1;
-  transform: none;
-  clip-path: circle(0px at var(--bh-vx, 30vw) var(--bh-vy, 50vh));
+  transition: background-color 0.3s, opacity 0.45s ease, transform 0.45s ease;
 }
 
 body.startup-active #top,

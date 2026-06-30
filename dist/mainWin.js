@@ -3,6 +3,136 @@ function startWin() {
     mainWin.Show(); 
 }
 
+var UI_LANG = "zh";
+
+var UI_I18N = {
+    "not_initialized": {
+        "en": "InteractiveHtmlBomForAD is not initialized. Please run Initialize.bat first.",
+        "zh": "\u0069\u006e\u0074\u0065\u0072\u0061\u0063\u0074\u0069\u0076\u0065\u0048\u0074\u006d\u006c\u0042\u006f\u006d\u0046\u006f\u0072\u0041\u0044 \u672a\u521d\u59cb\u5316\uff0c\u8bf7\u5148\u8fd0\u884c Initialize.bat"
+    },
+    "outline_guess_prefix": {
+        "en": "Outline layer may be wrong: seems more likely on ",
+        "zh": "\u677f\u6846\u5c42\u53ef\u80fd\u9009\u9519\uff1a\u68c0\u6d4b\u5230\u66f4\u53ef\u80fd\u5728"
+    },
+    "dir_error": {
+        "en": "Directory error",
+        "zh": "\u8def\u5f84\u9519\u8bef"
+    },
+    "win_caption": { "en": "Interactive BOM", "zh": "\u4ea4\u4e92\u5f0f BOM" },
+    "tab_general": { "en": "General", "zh": "\u901a\u7528" },
+    "tab_html_defaults": { "en": "Html defaults", "zh": "HTML \u9ed8\u8ba4" },
+    "tab_extra_fields": { "en": "Extra fields", "zh": "\u6269\u5c55\u5b57\u6bb5" },
+    "tab_pcb_tools": { "en": "PCB tools", "zh": "PCB \u5de5\u5177" },
+    "group_language": { "en": "Language", "zh": "\u8bed\u8a00" },
+    "group_bom_dest": { "en": "Save to", "zh": "\u4fdd\u5b58\u4f4d\u7f6e" },
+    "label_directory": { "en": "Output", "zh": "\u8f93\u51fa" },
+    "group_additional": { "en": "Board data", "zh": "\u677f\u56fe\u9644\u52a0\u6570\u636e" },
+    "include_tracks": { "en": "Include tracks/solid polygons", "zh": "\u5305\u542b\u8d70\u7ebf/\u5b9e\u5fc3\u94dc\u76ae" },
+    "include_vias": { "en": "Include vias", "zh": "\u5305\u542b\u8fc7\u5b54" },
+    "group_blacklist": { "en": "Component filters", "zh": "\u5668\u4ef6\u8fc7\u6ee4" },
+    "blacklist_empty": { "en": "Component with \"DNP\"|\"\"|\"~\" comment", "zh": "\u6ce8\u91ca\u4e3a \"DNP\"/\u7a7a/\u201c~\u201d \u7684\u5668\u4ef6" },
+    "blacklist_1pad": { "en": "Component with 1 pad", "zh": "\u5355 Pad \u5668\u4ef6" },
+    "blacklist_th": { "en": "Component of th", "zh": "\u63d2\u88c5\u5668\u4ef6(TH)" },
+    "btn_generate": { "en": "Export HTML", "zh": "\u5bfc\u51fa HTML" },
+    "group_outline": { "en": "Outline layer", "zh": "\u677f\u6846\u5c42" },
+    "outline_keepout": { "en": "Keep out layer", "zh": "Keep Out \u5c42" },
+    "outline_mech1": { "en": "Mechanical 1", "zh": "Mechanical1" },
+    "dark_mode": { "en": "Dark mode", "zh": "\u6df1\u8272\u6a21\u5f0f" },
+    "show_pads": { "en": "Show footprint pads", "zh": "\u663e\u793a Pad" },
+    "show_fab": { "en": "Show fabrication layer", "zh": "\u663e\u793a\u5de5\u827a\u5c42" },
+    "show_silk": { "en": "Show silkscreen", "zh": "\u663e\u793a\u4e1d\u5370" },
+    "highlight_pin1": { "en": "Highlight first pin", "zh": "\u9ad8\u4eae 1 \u811a" },
+    "continuous_redraw": { "en": "Continuous redraw on drag", "zh": "\u62d6\u52a8\u65f6\u8fde\u7eed\u91cd\u7ed8" },
+    "label_rotation": { "en": "Board rotation", "zh": "\u677f\u5b50\u65cb\u8f6c" },
+    "group_checkboxes": { "en": "Checkboxes", "zh": "\u5feb\u6377\u52fe\u9009\u9879" },
+    "group_bom_view": { "en": "BOM View", "zh": "BOM \u5e03\u5c40" },
+    "bom_only": { "en": "BOM only", "zh": "\u4ec5 BOM" },
+    "bom_left_right": { "en": "BOM left, drawings right", "zh": "BOM \u5de6 \u00b7 PCB \u53f3" },
+    "bom_top_bottom": { "en": "BOM top, drawings bottom", "zh": "BOM \u4e0a \u00b7 PCB \u4e0b" },
+    "group_layer_view": { "en": "Layer View", "zh": "\u5c42\u663e\u793a" },
+    "layer_fb": { "en": "Front and Back", "zh": "\u6b63\u53cd\u9762" },
+    "layer_f": { "en": "Front only", "zh": "\u4ec5\u6b63\u9762" },
+    "layer_b": { "en": "Back only", "zh": "\u4ec5\u53cd\u9762" },
+    "group_other": { "en": "Export", "zh": "\u5bfc\u51fa" },
+    "open_browser": { "en": "Open browser", "zh": "\u6253\u5f00\u6d4f\u89c8\u5668" },
+    "open_explorer": { "en": "Open explorer", "zh": "\u6253\u5f00\u6587\u4ef6\u5939" },
+    "lang_zh": { "en": "Chinese", "zh": "\u4e2d\u6587" },
+    "lang_en": { "en": "English", "zh": "\u82f1\u6587" },
+    "group_extra_file": { "en": "Extra file (not implemeted)", "zh": "\u6269\u5c55\u6587\u4ef6(\u672a\u5b9e\u73b0)" }
+};
+
+function uiStr(key) {
+    try {
+        if (Object.prototype.hasOwnProperty.call(UI_I18N, key)) {
+            if (Object.prototype.hasOwnProperty.call(UI_I18N[key], UI_LANG)) {
+                return UI_I18N[key][UI_LANG];
+            }
+            return UI_I18N[key]["en"];
+        }
+    } catch(e) {}
+    return key;
+}
+
+function applyUiLang() {
+    try { mainWin.Caption = uiStr("win_caption"); } catch(e) {}
+    try { TabSheet1.Caption = uiStr("tab_general"); } catch(e) {}
+    try { TabSheet2.Caption = uiStr("tab_html_defaults"); } catch(e) {}
+    try { TabSheet3.Caption = uiStr("tab_extra_fields"); } catch(e) {}
+    try { TabSheet4.Caption = uiStr("tab_pcb_tools"); } catch(e) {}
+
+    try { GroupBoxLang.Caption = uiStr("group_language"); } catch(e) {}
+    try { GroupBox1.Caption = uiStr("group_bom_dest"); } catch(e) {}
+    try { StaticText1.Caption = uiStr("label_directory"); } catch(e) {}
+    try { GroupBox3.Caption = uiStr("group_additional"); } catch(e) {}
+    try { CbIncludeTracksAndSolidPolygons.Caption = uiStr("include_tracks"); } catch(e) {}
+    try { CbIncludeVias.Caption = uiStr("include_vias"); } catch(e) {}
+    try { GroupBox4.Caption = uiStr("group_blacklist"); } catch(e) {}
+    try { CbBlacklistEmpty.Caption = uiStr("blacklist_empty"); } catch(e) {}
+    try { CbBlacklist1Pad.Caption = uiStr("blacklist_1pad"); } catch(e) {}
+    try { CbBlacklistTh.Caption = uiStr("blacklist_th"); } catch(e) {}
+    try { GenerateBom.Caption = uiStr("btn_generate"); } catch(e) {}
+    try { GroupBox10.Caption = uiStr("group_outline"); } catch(e) {}
+    try { RBtnKeepOutLayer.Caption = uiStr("outline_keepout"); } catch(e) {}
+    try { RBtnMech1.Caption = uiStr("outline_mech1"); } catch(e) {}
+
+    try { CbDarkMode.Caption = uiStr("dark_mode"); } catch(e) {}
+    try { CbShowFootprintPads.Caption = uiStr("show_pads"); } catch(e) {}
+    try { CbShowFabricationLayer.Caption = uiStr("show_fab"); } catch(e) {}
+    try { CbShowSilkscreen.Caption = uiStr("show_silk"); } catch(e) {}
+    try { CbHighlightFirstPin.Caption = uiStr("highlight_pin1"); } catch(e) {}
+    try { CbContinuousRedrawOnDrag.Caption = uiStr("continuous_redraw"); } catch(e) {}
+    try { StaticText2.Caption = uiStr("label_rotation"); } catch(e) {}
+    try { GroupBox5.Caption = uiStr("group_checkboxes"); } catch(e) {}
+    try { GroupBox6.Caption = uiStr("group_bom_view"); } catch(e) {}
+    try { RBtnBomOnly.Caption = uiStr("bom_only"); } catch(e) {}
+    try { RBtnBomLeftDrawingRight.Caption = uiStr("bom_left_right"); } catch(e) {}
+    try { RBtnBomTopDrawingBottom.Caption = uiStr("bom_top_bottom"); } catch(e) {}
+    try { GroupBox7.Caption = uiStr("group_layer_view"); } catch(e) {}
+    try { RBtnFrontAndBack.Caption = uiStr("layer_fb"); } catch(e) {}
+    try { RBtnFrontOnly.Caption = uiStr("layer_f"); } catch(e) {}
+    try { RBtnBackOnly.Caption = uiStr("layer_b"); } catch(e) {}
+    try { GroupBox8.Caption = uiStr("group_other"); } catch(e) {}
+    try { CbOpenBrowser.Caption = uiStr("open_browser"); } catch(e) {}
+    try { CbOpenExplorer.Caption = uiStr("open_explorer"); } catch(e) {}
+    try { RBtnLangZh.Caption = uiStr("lang_zh"); } catch(e) {}
+    try { RBtnLangEn.Caption = uiStr("lang_en"); } catch(e) {}
+
+    try { GroupBox2.Caption = uiStr("group_extra_file"); } catch(e) {}
+}
+
+function setUiLang(lang) {
+    UI_LANG = (lang == "en") ? "en" : "zh";
+    applyUiLang();
+}
+
+function LangRadioClick(Sender) {
+    if (RBtnLangEn.Checked) {
+        setUiLang("en");
+    } else {
+        setUiLang("zh");
+    }
+}
+
 function ibomIsInitialized() {
     try {
         if (typeof CURRENT_PATH === "undefined" || CURRENT_PATH == "") {
@@ -53,19 +183,41 @@ function applyOutlineGuess(board, setRadio) {
         return;
     }
     if (RBtnMech1.Checked != guess) {
-        showmessage("板框层可能选错：检测到更可能在" + (guess ? "Mechanical1" : "Keep Out Layer"));
+        showmessage(uiStr("outline_guess_prefix") + (guess ? "Mechanical1" : "Keep Out Layer"));
+    }
+}
+
+function openGeneratedOutputs(filename) {
+    if (CbOpenBrowser.Checked) {
+        RunApplication('explorer.exe "' + filename + '"');
+    }
+    if (CbOpenExplorer.Checked) {
+        RunApplication('explorer.exe "' + ExtractFilePath(filename) + '"');
     }
 }
 
 function mainWinShow(Sender) {
     var iniFileName = CURRENT_PATH + "config.ini";
+    try {
+        PageControl1.ActivePage = TabSheet1;
+    } catch(e) {}
 
     if (!ibomIsInitialized()) {
-        showmessage("InteractiveHtmlBomForAD 未初始化，请先运行 Initialize.bat");
+        showmessage(uiStr("not_initialized"));
     }
 
     if (FileExists(iniFileName)) {
         var iniFile = TIniFile.Create(iniFileName);
+        var uiLang = iniFile.ReadString("Ui", "Lang", "zh");
+        if (uiLang == "en") {
+            RBtnLangEn.Checked = true;
+            RBtnLangZh.Checked = false;
+            setUiLang("en");
+        } else {
+            RBtnLangEn.Checked = false;
+            RBtnLangZh.Checked = true;
+            setUiLang("zh");
+        }
         if (PCBServer != null) {
             PCBServer.PreProcess;
             var currentPcb = PCBServer.GetCurrentPCBBoard();
@@ -128,12 +280,14 @@ function mainWinShow(Sender) {
         RBtnFrontOnly.Checked = iniFile.ReadBool("HtmlDefaults", "PcbLayerFrontOnly", false);
         RBtnFrontAndBack.Checked = iniFile.ReadBool("HtmlDefaults", "PcbLayerFrontAndBack", true);
         RBtnBackOnly.Checked = iniFile.ReadBool("HtmlDefaults", "PcbLayerBackOnly", false);
-        // CbOpenBrowser.Checked = iniFile.ReadBool("HtmlDefaults", "OtherOpenBrowser", false);
-        CbOpenBrowser.Checked = false;
+        CbOpenBrowser.Checked = iniFile.ReadBool("HtmlDefaults", "OtherOpenBrowser", false);
         CbOpenExplorer.Checked = iniFile.ReadBool("HtmlDefaults", "OtherOpenExplorer", true);
 
         iniFile.Free;
     } else {
+        RBtnLangEn.Checked = false;
+        RBtnLangZh.Checked = true;
+        setUiLang("zh");
         if (PCBServer != null) {
             PCBServer.PreProcess;
             var currentPcb = PCBServer.GetCurrentPCBBoard();
@@ -196,7 +350,7 @@ function mainWinShow(Sender) {
 
 function GenerateBomClick(Sender) {
     if (!ibomIsInitialized()) {
-        showmessage("InteractiveHtmlBomForAD 未初始化，请先运行 Initialize.bat");
+        showmessage(uiStr("not_initialized"));
         return;
     }
     var iniFileName = CURRENT_PATH + "config.ini";
@@ -276,8 +430,7 @@ function GenerateBomClick(Sender) {
     save2file(html, filename, false);
 
     try {
-        var commandline = "explorer.exe " + ExtractFilePath(filename);
-        var errcode = RunApplication(commandline);
+        openGeneratedOutputs(filename);
     }
     catch(e) {
         showmessage(e.message);
@@ -391,6 +544,7 @@ function TTrackBarRotationChange(Sender) {
 
 function setValueToInifile(iniFileName) {
     var iniFile = TIniFile.Create(iniFileName);
+    iniFile.WriteString("Ui", "Lang", UI_LANG);
     iniFile.WriteString("General", "Directory", TEditCurrentPcbPath.Text);
     iniFile.WriteBool("General", "IncludeTracksAndSolidPolygons", CbIncludeTracksAndSolidPolygons.Checked);
     iniFile.WriteBool("General", "IncludeVias", CbIncludeVias.Checked);
@@ -429,13 +583,13 @@ function getSaveDir(text) {
     var len = arr.length - 1;
 
     if (!fso.FolderExists(arr[0])) {
-        showmessage("Directory error");
+        showmessage(uiStr("dir_error"));
         return "";
     }
 
     for (var i = 0; i <= len; i++) {
         if (arr[i] == "") {
-            showmessage("Directory error");
+            showmessage(uiStr("dir_error"));
             return "";
         }
     }

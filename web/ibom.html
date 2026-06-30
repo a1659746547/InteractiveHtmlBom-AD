@@ -48,12 +48,16 @@
   </script>
 </head>
 
-<body>
+<body class="startup-active">
 ///USERHEADER///
 <div id="startupOverlay" class="startup-overlay" aria-hidden="true">
   <div class="startup-overlay-bg"></div>
   <div class="startup-overlay-grid"></div>
-  <div class="startup-blackhole"></div>
+  <div class="startup-overlay-beams">
+    <span class="startup-beam startup-beam-a"></span>
+    <span class="startup-beam startup-beam-b"></span>
+    <span class="startup-beam startup-beam-c"></span>
+  </div>
   <div class="startup-overlay-content">
     <div class="startup-badge">InteractiveHtmlBom</div>
     <h1 id="startupTitle" class="startup-title">Loading Board View</h1>
@@ -82,11 +86,17 @@
             </div>
             <input id="langSearch" class="menu-lang-search" type="text" placeholder="Search" data-i18n-placeholder="language_search"
                    oninput="filterLanguageOptions(this.value)">
-            <select id="langSelect" class="menu-select menu-select-full" onchange="setLanguage(this.value)">
+            <select id="langSelect" class="menu-select menu-select-full" size="1" onchange="setLanguage(this.value)">
               <option value="en" data-i18n="lang_en">English</option>
               <option value="zh" data-i18n="lang_zh">中文</option>
               <option value="ja" data-i18n="lang_ja">日本語</option>
               <option value="ko" data-i18n="lang_ko">한국어</option>
+              <option value="fr" data-i18n="lang_fr">Français</option>
+              <option value="de" data-i18n="lang_de">Deutsch</option>
+              <option value="es" data-i18n="lang_es">Español</option>
+              <option value="ru" data-i18n="lang_ru">Русский</option>
+              <option value="pt" data-i18n="lang_pt">Português</option>
+              <option value="it" data-i18n="lang_it">Italiano</option>
             </select>
           </label>
           <div class="menu-grid menu-grid-top">
