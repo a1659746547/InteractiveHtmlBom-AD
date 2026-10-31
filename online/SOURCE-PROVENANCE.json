@@ -7,12 +7,13 @@
   },
   "backend": "2026-10-21 published source package; production file hashes not verified",
   "publishedFrontendSha256": {
-    "index.html": "a14dd6d50620ccebdfdeb6b3e248103571c90ce8defe32376275cdd75faf0e80",
+    "index.html": "fb3c2d7f8e70dacb0611122c1a5bd75ef78d448d72f7d18ed6ea97311c99505d",
     "gerber.html": "0e902969e87bf9de3417b7effc0e8be7bbb252327597fe30b4a8dee93865cef3"
   },
   "changes": [
     "Added a visible GitHub source link to the home page; split script blocks into buildable source files.",
     "Refined GitHub entry to use the existing footer typography, theme colors and responsive layout.",
-    "Moved GitHub to the top-right home header; opening format details scrolls the explanation into view."
+    "Moved GitHub to the top-right home header; opening format details scrolls the explanation into view.",
+    "Animated support details expansion and collapse, then scroll only enough to reveal the explanation."
   ]
 }
