@@ -1,0 +1,25 @@
+[Unit]
+Description=Private PCB website access statistics
+After=network.target
+
+[Service]
+Type=simple
+User=www
+Group=www
+Environment=PCB_STATS_CONFIG=/etc/pcb-stats/config.json
+StateDirectory=pcb-stats
+StateDirectoryMode=0700
+UMask=0077
+WorkingDirectory=/opt/pcb-stats
+ExecStart=/usr/bin/python3 /opt/pcb-stats/analytics_server.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/pcb-stats
+RestrictAddressFamilies=AF_INET AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

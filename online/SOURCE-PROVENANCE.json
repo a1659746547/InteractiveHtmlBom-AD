@@ -1,0 +1,16 @@
+{
+  "source": "https://pcb.kn21.xyz/",
+  "retrieved": "2026-10-31",
+  "frontendSha256": {
+    "index.html": "756d2c5da696a712af6102e0d2610ec4858a66907f3ad3c14f5a3cf21fee332a",
+    "gerber.html": "c113ca781e0ffac5ef1c7afcfb1afc1938d51fedbaa1962367f40c330b41a6ea"
+  },
+  "backend": "2026-10-21 published source package; production file hashes not verified",
+  "publishedFrontendSha256": {
+    "index.html": "46eb2ba5e1636d6bbf39753a1b0e2b1327a44939706a3dcb14352b1b0373547b",
+    "gerber.html": "0e902969e87bf9de3417b7effc0e8be7bbb252327597fe30b4a8dee93865cef3"
+  },
+  "changes": [
+    "Added a visible GitHub source link to the home page; split script blocks into buildable source files."
+  ]
+}

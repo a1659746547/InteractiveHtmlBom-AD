@@ -1,0 +1,17 @@
+/* Keep native details in normal flow; display:contents breaks its content grid. */
+.import-footer{position:relative;display:block;box-sizing:border-box;padding-top:30px;margin-top:16px;min-width:0}
+.import-footer .privacy-note{position:absolute;left:0;top:2px;max-width:calc(100% - 280px);margin:0;align-items:flex-start;gap:6px;line-height:1.7;font-size:11px}
+.import-footer .privacy-note svg{flex:0 0 auto;margin-top:2px}
+.import-footer .scope-note,.import-footer .scope-note[open]{display:block;position:static;box-sizing:border-box;width:100%;max-width:none;min-width:0}
+.import-footer .scope-note>summary,.import-footer .scope-note[open]>summary{position:absolute;right:0;top:0;display:flex;align-items:center;gap:8px;max-width:270px;width:max-content;margin:0;padding:2px 0;border:0;border-radius:0;background:transparent;box-shadow:none;font-size:12px;font-weight:400;line-height:1.7;cursor:pointer}
+.import-footer .scope-note>summary:focus-visible{outline:2px solid var(--host-accent,#2563eb);outline-offset:4px;border-radius:3px}
+.import-footer .scope-note>.support-details{position:static;box-sizing:border-box;width:100%;max-width:none;min-width:0;margin:0;padding:6px 18px!important;border:1px solid var(--host-line,#dce5f1)!important;border-radius:14px!important;box-shadow:none!important;color:var(--host-text,#364b65);font-size:12px;line-height:1.85}
+.support-details .support-group{display:grid;grid-template-columns:116px minmax(0,1fr);gap:18px;margin:0;padding:13px 0;border:0;border-bottom:1px solid var(--host-line,#dce5f1)}
+.support-details .support-group:last-child{border-bottom:0}
+.support-details .support-group>dt{margin:0;font-size:12px;font-weight:600;color:var(--host-text,#364b65);line-height:1.85}
+.support-details .support-group>dd{min-width:0;margin:0;color:var(--host-muted,#718096)}
+.support-details .support-group p{margin:0;overflow-wrap:anywhere}
+@media(max-width:700px){.import-footer{padding-top:0}.import-footer .privacy-note{position:static;max-width:none;margin-bottom:8px}.import-footer .scope-note>summary,.import-footer .scope-note[open]>summary{position:static;max-width:100%;margin:0 0 10px;width:max-content}.import-footer .scope-note:not([open])>summary{margin-bottom:0}.import-footer .scope-note>.support-details{padding:4px 14px!important}.support-details .support-group{grid-template-columns:minmax(0,1fr);gap:4px;padding:12px 0}}
+
+/* Leave the last lines above the fixed chat/appearance launchers when expanded. */
+.import-footer:has(.scope-note[open]){padding-bottom:84px}

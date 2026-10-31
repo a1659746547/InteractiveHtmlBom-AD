@@ -1,0 +1,13 @@
+/* Keep assembly navigation close at hand; wrap below view controls on small screens. */
+#pending-navigation{display:flex;align-items:center;gap:7px;order:-2;flex:1 1 290px;min-width:0;max-width:420px;color:var(--ui-text);font:12px "Segoe UI","Microsoft YaHei",sans-serif}
+#topmostdiv #pending-navigation button{display:inline-flex;align-items:center;justify-content:center;gap:4px;flex:0 0 auto;width:auto;height:32px;min-width:0;margin:0;padding:0 10px;border:1px solid var(--ui-border);border-radius:7px;color:var(--ui-text);background:var(--ui-panel-bg);font:500 12px "Segoe UI","Microsoft YaHei",sans-serif;white-space:nowrap;cursor:pointer}
+#topmostdiv #pending-navigation button:hover:enabled{border-color:var(--ui-input-focus-border);color:var(--ui-link);background:var(--ui-hover-bg)}
+#topmostdiv #pending-navigation button:focus-visible{outline:3px solid #aac7fc;outline-offset:2px}
+#topmostdiv #pending-navigation button:disabled{opacity:.4;cursor:default}
+#pending-navigation .pending-chevron{display:block;flex:0 0 14px;width:14px;height:14px;pointer-events:none}
+#pending-status{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--ui-muted);font-size:11px}
+@media(min-width:1250px){#fileinfodiv{max-width:24%}#top>div:first-child{gap:8px}}
+@media(max-width:1249.98px){#pending-navigation{width:100%;max-width:none;height:42px;min-height:42px;padding:4px 12px;border-bottom:1px solid var(--ui-border);box-sizing:border-box;background:var(--ui-panel-bg)}#bot{height:calc(100% - 96px)!important}#topmostdiv #pending-navigation button{height:32px}}
+@media(max-width:1024.98px){#bot{height:calc(100% - 132px)!important}#pending-navigation{padding:4px 10px}}
+@media(min-width:701px) and (max-width:1024.98px){#bot{height:calc(100% - 146px)!important}}
+@media print{#pending-navigation{display:none!important}#bot{height:auto!important}}

@@ -1,0 +1,19 @@
+[Unit]
+Description=PCB website feedback mail endpoint
+After=network.target
+
+[Service]
+User=www
+Group=www
+WorkingDirectory=/opt/pcb-feedback
+EnvironmentFile=/etc/pcb-feedback.env
+ExecStart=/opt/pcb-feedback/.venv/bin/python /opt/pcb-feedback/feedback_server.py
+Restart=on-failure
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

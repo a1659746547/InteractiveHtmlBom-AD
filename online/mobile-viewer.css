@@ -1,0 +1,34 @@
+#mobile-view-switch{display:none}
+@media screen and (max-width:1024.98px){
+ html,body{height:100%;overflow:hidden;overscroll-behavior:none}#topmostdiv{height:100dvh!important;max-width:100%;overflow:hidden}
+ #top{height:48px!important;padding:0 8px!important;justify-content:flex-start!important;gap:6px!important;overflow-x:auto;overflow-y:visible;white-space:nowrap;scrollbar-width:none}
+ #top>*{flex:0 0 auto!important}#top>div:first-child{margin-left:0!important;gap:4px!important}#top .button-container{flex-shrink:0;white-space:nowrap}#top button{white-space:nowrap;word-break:normal;min-width:36px;height:36px;padding:0 9px!important;font-size:12px!important}#top .menu-content{position:fixed;top:48px;left:8px;right:8px;width:auto;max-height:70dvh;overflow:auto;white-space:normal;z-index:1000}
+ #top .mobile-layout-hidden{display:none!important}
+ #mobile-view-switch{display:flex;height:42px;box-sizing:border-box;gap:4px;align-items:center;padding:4px 10px;border-bottom:1px solid var(--ui-border);background:var(--ui-panel-bg);color:var(--ui-text)}
+ #mobile-view-switch button{flex:1;min-height:32px;border:0;border-radius:6px;background:transparent;color:var(--ui-muted);font:500 13px sans-serif}#mobile-view-switch button[aria-pressed=true]{background:var(--ui-hover-bg);color:var(--ui-text);font-weight:700}
+ #bot{height:calc(100% - 90px)!important;display:flex!important;flex-direction:column;overflow:hidden;width:100%!important}
+ #bomdiv,#canvasdiv{float:none!important;width:100%!important;min-width:0;box-sizing:border-box}#bot>.gutter{display:none!important}
+ #topmostdiv.mobile-split #canvasdiv{order:0;height:40%!important;min-height:110px;border-bottom:1px solid var(--ui-border)}#topmostdiv.mobile-split #bomdiv{order:1;height:60%!important}
+ #topmostdiv.mobile-bom #canvasdiv{display:none!important}#topmostdiv.mobile-bom #bomdiv{height:100%!important;display:block!important}
+ #topmostdiv.mobile-board #bomdiv{display:none!important}#topmostdiv.mobile-board #canvasdiv{height:100%!important;display:block!important}
+ #bomdiv{overflow:auto!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+ #bomdiv>div:first-of-type:not(#board-progress-tools){display:flex;align-items:center;gap:6px;padding:8px;box-sizing:border-box;min-width:100%;width:100%!important;background:var(--ui-panel-bg)}
+ #bomdiv .searchbox{float:none!important;min-width:0;width:calc(50% - 28px)!important;height:36px;font-size:14px;box-sizing:border-box;margin:0;background-size:16px;background-position:8px center;padding-left:30px}
+ #bomdiv .button-container{flex-shrink:0}#copy{width:36px;height:36px}
+ .bom{table-layout:fixed!important;min-width:600px;width:100%!important;font-size:12px!important}.bom th,.bom td{box-sizing:border-box;word-wrap:normal!important;overflow-wrap:normal!important;word-break:normal!important;white-space:nowrap;padding:8px!important;overflow:hidden;text-overflow:ellipsis;line-height:1.5}.bom th:nth-child(1){width:28px!important}.bom th:nth-child(2){width:60px!important}.bom th:nth-child(3){width:130px!important}.bom th:nth-child(4){width:110px!important}.bom th:nth-child(5){width:220px!important}.bom th:nth-child(6){width:50px!important}.bom input[type=checkbox]{min-width:20px;min-height:20px}
+ #board-progress-tools{position:sticky;left:0;top:0;width:100%;box-sizing:border-box;padding:8px 10px;font-size:12px}.board-progress-heading{gap:6px;flex-wrap:nowrap}#board-progress-counts{min-width:0!important;white-space:nowrap}#board-export-open{min-height:32px;padding:4px 8px}dialog{box-sizing:border-box;max-width:calc(100vw - 24px)!important;max-height:85dvh;overflow:auto}#parse-notice{display:none}
+}
+@media screen and (min-width:701px) and (max-width:1024.98px){
+ #top{height:56px!important;padding:0 14px!important;gap:10px!important}
+ #top button{height:40px;min-width:40px;font-size:13px!important;padding:0 12px!important}
+ #top .menu-content{top:56px}
+ #mobile-view-switch{height:48px;padding:4px 14px;gap:8px}
+ #mobile-view-switch button{min-height:38px;font-size:14px}
+ #bot{height:calc(100% - 104px)!important}
+ #topmostdiv.mobile-split #canvasdiv{height:45%!important;min-height:180px}
+ #topmostdiv.mobile-split #bomdiv{height:55%!important}
+ .bom{font-size:13px!important}.bom th,.bom td{padding:10px!important}
+ #board-progress-tools{padding:10px 14px;font-size:13px}
+ #board-export-open{min-height:38px;padding:6px 12px}
+ #bomdiv .searchbox{height:40px;font-size:15px}
+}

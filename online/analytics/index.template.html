@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>访问统计 · PCB 装配助手</title><style>/*STYLE*/</style></head><body>
+<main class="shell">
+ <header class="top"><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 19V5h5v14m1 0V9h5v10m1 0V3h5v16M2 21h21"/></svg></span>PCB 装配助手 <span style="font-weight:400;color:#8c9ca4">/</span> 访问统计</div><div class="top-right"><span class="domain">pcb.kn21.xyz</span><span class="pill">本地预览</span></div></header>
+ <div class="heading"><div><h1>了解网站的访问情况</h1><p class="subtitle" id="range">正在读取数据…</p></div><div class="actions"><button id="export">导出汇总</button><button class="primary" id="import">导入数据</button><input id="file" type="file" accept=".log,.txt,.json" hidden></div></div>
+ <div class="controls"><div class="dates"><button id="all">全部日期</button><input id="start" type="date" aria-label="开始日期"><span>至</span><input id="end" type="date" aria-label="结束日期"></div><label class="filter"><input id="filter" type="checkbox" checked>过滤明显机器流量与已排除的测试出口</label></div>
+ <div id="error" class="error" role="alert" hidden></div>
+ <section class="cards" aria-label="访问概况">
+  <article class="card"><div class="card-head"><span id="visit-label">过滤后的主页访问</span><span class="mini" aria-hidden="true">↗</span></div><div class="value" id="visits">—</div><div class="hint" id="visits-hint"></div></article>
+  <article class="card"><div class="card-head">不同访问 IP<span class="mini" aria-hidden="true">◎</span></div><div class="value" id="ips">—</div><div class="hint" id="ips-hint">IP 数不等于真实用户数</div></article>
+  <article class="card"><div class="card-head">全部请求<span class="mini" aria-hidden="true">≋</span></div><div class="value" id="requests">—</div><div class="hint">包含主页、跳转、资源与扫描请求</div></article>
+  <article class="card"><div class="card-head">404 请求占比<span class="mini" aria-hidden="true">◇</span></div><div class="value" id="errors">—</div><div class="hint" id="errors-hint"></div></article>
+ </section>
+ <section class="grid">
+  <article class="panel"><div class="panel-head"><div><h2>每日访问趋势</h2><div class="small" id="chart-subtitle">查看每天的主页访问</div></div><div class="tabs"><button id="chart-home" aria-pressed="true">主页访问</button><button id="chart-all" aria-pressed="false">全部请求</button></div></div><div class="chart" id="chart" role="img" aria-label="每日访问趋势，详细数字见下方表格"></div><div class="legend" id="legend"></div></article>
+  <article class="panel"><h2>请求响应分布</h2><div class="small">统计所选日期内的全部请求</div><div id="statuses"></div><div class="status-foot" id="status-foot"></div></article>
+ </section>
+ <section class="panel table-panel"><div class="panel-head"><div><h2>每日明细</h2><div class="small">北京时间 · 不同日期的 IP 可能重复</div></div><div class="small" id="days"></div></div><div class="table-wrap"><table><thead><tr><th>日期</th><th>全部请求</th><th>成功获取主页</th><th id="table-visit-label">过滤后主页</th><th>对应不同 IP</th></tr></thead><tbody id="tbody"></tbody><tfoot id="tfoot"></tfoot></table></div></section>
+ <div class="notice"><strong>数据说明</strong> · <span id="notice"></span> IP 数只用于观察访问趋势，仍可能包含伪装浏览器的机器人。当前日志无法统计 PCB 导入、解析或导出操作。</div>
+ <details><summary>如何更新数据与统计口径</summary><p>当前是本地页面，数据不会自动刷新。后续可以从宝塔下载本站访问日志，点击「导入数据」，选择未压缩的 .log / .txt 文件；也可以导入本页面导出的汇总 JSON。日志在当前浏览器内处理，不上传到服务器。新导入的数据会替换当前数据，请导入完整的统计区间，避免重复拼接。</p><p>主页访问统计 GET / 或 /index.html 返回 200 / 304 的请求。过滤根据爬虫标识、同一 IP 的探测路径和测试出口进行，不代表已经准确识别所有真实访客。日志中没有 Host 字段，可能包含直接访问服务器 IP 的请求。</p><label for="exclude">导入日志时排除测试出口 IP（逗号分隔）</label><p><input id="exclude" value="14.145.4.4" aria-label="排除测试出口 IP"><span class="small">仅用于下一次导入，不会上传或保存。</span></p><p>统计快照只含每日汇总；筛选多个但非全部日期时，无法计算跨日期去重 IP 和响应状态分布，会显示「—」。导入原始日志后可以准确计算这些指标。汇总导出不含访问者 IP、原始请求路径或 PCB 数据。</p><p id="share-note"></p></details>
+ <footer class="footer"><span>PCB 装配助手 · 访问统计</span><span>本地数据视图 · 尚未接入实时统计或后台登录</span></footer>
+</main>
+<script id="initial-data" type="application/json">/*DATA*/</script><script>/*CORE*/</script><script>/*APP*/</script></body></html>

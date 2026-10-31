@@ -1,0 +1,12 @@
+<dialog id="share-unlock-dialog" aria-labelledby="share-unlock-title">
+  <form id="share-unlock-form" autocomplete="off">
+    <h2 id="share-unlock-title">此分享需要密码</h2>
+    <p class="muted">请输入分享者提供的访问密码，解锁查看 PCB。</p>
+    <div class="share-password-field">
+      <label for="share-unlock-password">访问密码</label>
+      <div class="share-password-input"><input id="share-unlock-password" type="password" placeholder="输入访问密码" autocomplete="off" maxlength="64" required aria-describedby="share-unlock-message"><button type="button" class="share-password-toggle" data-password-target="share-unlock-password" aria-label="显示密码" aria-pressed="false">显示</button></div>
+    </div>
+    <p id="share-unlock-message" role="status" aria-live="polite"></p>
+    <div class="share-unlock-actions"><button id="share-unlock-cancel" type="button" class="secondary">取消</button><button id="share-unlock-submit" type="submit">解锁查看</button></div>
+  </form>
+</dialog>

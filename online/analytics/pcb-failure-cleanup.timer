@@ -1,0 +1,11 @@
+[Unit]
+Description=Expire PCB diagnostic samples even while statistics service is stopped
+
+[Timer]
+OnBootSec=15s
+OnUnitActiveSec=30s
+AccuracySec=1s
+Unit=pcb-failure-cleanup.service
+
+[Install]
+WantedBy=timers.target

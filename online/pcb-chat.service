@@ -1,0 +1,23 @@
+[Unit]
+Description=PCB public chat and optional assembly presence
+After=network.target
+
+[Service]
+User=www
+Group=www
+WorkingDirectory=/opt/pcb-chat
+ExecStart=/usr/bin/python3 /opt/pcb-chat/chat_server.py
+Environment=CHAT_ORIGIN=https://pcb.kn21.xyz
+StateDirectory=pcb-chat
+UMask=0077
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/pcb-chat
+RestrictAddressFamilies=AF_INET AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

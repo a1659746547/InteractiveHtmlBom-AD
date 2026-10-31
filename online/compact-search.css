@@ -1,0 +1,12 @@
+/* Compact BOM lookup/filter toolbar, shared by embedded and exported viewers. */
+#topmostdiv #bomdiv #bom-search-tools{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) 30px;align-items:center;gap:8px;box-sizing:border-box;width:100%;min-width:0;padding:6px 12px;background:var(--ui-panel-bg);border-bottom:1px solid var(--ui-border)}
+#bomdiv #bom-search-tools .searchbox{float:none!important;box-sizing:border-box;width:100%!important;min-width:0;height:30px;margin:0;padding:0 10px 0 30px;font:13px/1.4 "Segoe UI","Microsoft YaHei",sans-serif;border:1px solid var(--ui-border);border-radius:6px;background-color:var(--ui-input-bg);background-size:14px 14px;background-position:9px center;background-repeat:no-repeat;color:var(--ui-text)}
+#bomdiv #bom-search-tools #reflookup{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23818da0' stroke-width='1.6'%3E%3Ccircle cx='10' cy='10' r='5.5'/%3E%3Cpath d='M10 1v5m0 8v5M1 10h5m8 0h5'/%3E%3C/svg%3E")}
+#bomdiv #bom-search-tools #filter{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23818da0' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='8.5' cy='8.5' r='5.5'/%3E%3Cpath d='m13 13 4 4'/%3E%3C/svg%3E")}
+#bomdiv #bom-search-tools .searchbox:focus{outline:2px solid #9dbffb;outline-offset:1px;border-color:#6d9ee8;background-color:var(--ui-input-focus-bg)}
+#bomdiv #bom-search-tools .searchbox::placeholder{font-size:13px;color:var(--ui-muted);opacity:.85}
+#bom-search-tools>.button-container{float:none!important;display:flex;margin:0!important;padding:0;background:none;min-width:0}
+#bom-search-tools #copy{box-sizing:border-box;width:30px;height:30px;min-width:30px;margin:0;padding:0;border:1px solid var(--ui-border);border-radius:6px;background-color:var(--ui-panel-bg);background-size:16px;background-position:center;background-repeat:no-repeat;cursor:pointer;opacity:.8}
+#bom-search-tools #copy:hover{background-color:var(--ui-hover-bg);opacity:1}
+@media(max-width:1024px){#topmostdiv #bomdiv #bom-search-tools{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) 34px;padding:6px 10px;gap:7px}#bomdiv #bom-search-tools .searchbox{height:34px}#bom-search-tools #copy{width:34px;height:34px;min-width:34px}}
+@media print{#topmostdiv #bomdiv #bom-search-tools{display:none}}

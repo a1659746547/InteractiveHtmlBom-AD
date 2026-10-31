@@ -1,0 +1,322 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>管理后台 · PCB 焊接助手</title><style>:root{font-family:Inter,"Segoe UI","Microsoft YaHei",sans-serif;color:#172b35;background:#f4f7f8;font-synthesis:none;--muted:#6a7d88;--line:#e3ebee;--teal:#087f75;--mint:#ddf3ec;--blue:#5273df}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #54b6aa;outline-offset:3px}button{border:1px solid var(--line);border-radius:9px;padding:10px 15px;background:white;color:#334d58}button:hover{background:#edf5f4}.primary{background:var(--teal);border-color:var(--teal);color:white}.primary:hover{background:#06695f}.shell{max-width:1240px;margin:auto;padding:0 32px 44px}.top{height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:14px}.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:34px;height:34px;background:var(--teal);color:white;border-radius:9px;display:grid;place-items:center}.logo svg{width:23px;height:23px}.top-right{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--muted)}.pill{font-size:11px;background:#e7eeff;color:#4d61a0;border-radius:6px;padding:5px 9px;white-space:nowrap}.heading{margin:34px 0 23px;display:flex;justify-content:space-between;gap:16px;align-items:center}h1{margin:0 0 9px;font-size:28px;letter-spacing:-.6px}.subtitle{color:var(--muted);font-size:13px;line-height:1.7;margin:0}.actions{display:flex;gap:8px}.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:23px;flex-wrap:wrap}.dates{display:flex;align-items:center;gap:9px;font-size:12px}.dates input{border:1px solid var(--line);border-radius:8px;padding:9px;background:white;color:#334d58;max-width:144px}.dates button{font-size:12px;padding:9px 12px}.filter{display:flex;align-items:center;gap:9px;font-size:12px;color:#334d58}.filter input{accent-color:var(--teal);width:16px;height:16px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card,.panel{background:white;border:1px solid var(--line);border-radius:13px;box-shadow:0 2px 4px #152d3703}.card{padding:21px 23px}.card-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#516973}.mini{width:27px;height:27px;display:grid;place-items:center;border-radius:7px;background:#f1f6f7;color:#769198}.card:first-child .mini{color:var(--teal);background:#e6f4ef}.value{font-size:34px;font-weight:700;line-height:1.25;margin:13px 0 8px;font-variant-numeric:tabular-nums;letter-spacing:-1px}.card:first-child .value{color:var(--teal)}.hint{font-size:11px;color:var(--muted);line-height:1.6;min-height:18px}.grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);gap:18px;margin-top:20px}.panel{padding:23px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px}h2{font-size:14px;margin:0 0 5px}.small{font-size:11px;color:var(--muted);line-height:1.6}.tabs{display:flex;background:#f3f6f7;padding:3px;border-radius:8px}.tabs button{border:0;font-size:11px;padding:7px 10px;background:transparent}.tabs button[aria-pressed=true]{background:white;box-shadow:0 1px 4px #16343e12;color:var(--teal)}.chart{height:236px;margin-top:22px;position:relative}.chart svg{width:100%;height:100%;overflow:visible}.legend{display:flex;gap:17px;font-size:11px;color:var(--muted);margin-top:7px}.dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;background:var(--teal)}.dot.gray{background:#dce6e9}.status-row{margin-top:21px}.status-label{display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:9px}.track{height:7px;background:#f0f4f5;border-radius:8px;overflow:hidden}.fill{height:100%;border-radius:8px;background:var(--teal)}.status-foot{margin-top:21px;border-top:1px solid var(--line);padding-top:15px;font-size:11px;color:var(--muted);line-height:1.8}.table-panel{margin-top:20px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;margin-top:15px;font-size:12px;white-space:nowrap}th,td{padding:14px 12px;border-bottom:1px solid #edf1f3;text-align:right}th{font-weight:500;color:var(--muted);background:#f7f9fa}th:first-child,td:first-child{text-align:left}tfoot td{font-weight:700;border-bottom:0}tbody tr:hover{background:#f7fbfa}.tag{color:var(--teal);background:#eaf6f1;font-size:10px;padding:3px 6px;border-radius:4px;margin-left:8px}.notice{margin:19px 0 0;padding:15px 18px;border-radius:10px;background:#edf3f5;font-size:12px;line-height:1.9;color:#536e7a}.notice strong{color:#334d58}.footer{margin-top:23px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;line-height:1.8}details{margin-top:18px;border-top:1px solid var(--line);padding-top:15px;font-size:12px;color:#536e7a}summary{cursor:pointer}details p{line-height:1.9}details input{padding:9px;border:1px solid var(--line);border-radius:7px;width:250px;max-width:100%;margin:0 7px 8px 0}.error{padding:12px 16px;background:#fff2ed;color:#a24926;border:1px solid #f2dbcd;border-radius:8px;margin:15px 0;line-height:1.7;font-size:12px}.empty{height:236px;display:grid;place-items:center;color:var(--muted);font-size:13px}.loader{opacity:.5;pointer-events:none}[hidden]{display:none!important}@media(max-width:850px){.shell{padding:0 20px 30px}.cards{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.heading{align-items:flex-start}.top-right .domain{display:none}.dates{flex-wrap:wrap}.actions{flex-wrap:wrap}.card{padding:18px}.footer{display:block}.chart{height:220px}}@media(max-width:500px){.shell{padding:0 14px 25px}.heading{flex-direction:column;margin-top:25px}h1{font-size:25px}.cards{gap:10px}.value{font-size:30px}.panel{padding:18px}.top{height:65px}.brand{font-size:14px}.card-head{font-size:11px}.panel-head{align-items:flex-start}.tabs button{padding:7px}.dates input{max-width:133px}.card{padding:15px}}
+.usage-panel{margin-top:20px}.usage-panel #usage-refresh{font-size:12px;padding:8px 10px;white-space:nowrap}.usage-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:22px 0}.usage-cards>div{min-width:0;border-right:1px solid var(--line);padding-right:12px}.usage-cards>div:last-child{border:0}.usage-cards span{display:block;font-size:12px;color:var(--muted)}.usage-cards strong{display:block;font-size:26px;margin-top:9px;color:var(--teal);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.usage-panel p.small{margin:8px 0;line-height:1.9}.visitor-table{min-width:1100px}.usage-active-tag{color:var(--teal);font-weight:600}@media(max-width:650px){.usage-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.usage-cards>div:nth-child(2){border:0}.usage-panel .panel-head{flex-wrap:wrap}.usage-cards strong{font-size:23px}}
+.chat-admin{margin:0 0 24px;padding:20px 23px}.chat-admin-row{display:flex;justify-content:space-between;align-items:center;gap:16px}.chat-admin-row .small{margin:5px 0 0}.chat-admin-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}.chat-admin-state{font-size:12px;color:var(--muted)}.chat-admin-state[data-enabled=true]{color:var(--teal)}.chat-admin-toggle{width:44px;height:25px;padding:3px;border:0;border-radius:20px;background:#c5d1d6;transition:background .15s;flex-shrink:0}.chat-admin-toggle:hover{background:#b4c4cb}.chat-admin-toggle[aria-checked=true]{background:var(--teal)}.chat-admin-toggle span{display:block;width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #16343e22;transition:transform .15s}.chat-admin-toggle[aria-checked=true] span{transform:translateX(19px)}.chat-admin-toggle:disabled{cursor:wait;opacity:.55}.chat-admin-note{margin:16px 0 0;font-size:12px;line-height:1.9;color:var(--muted)}.chat-admin-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;min-height:28px}.chat-admin-foot [role=status]{font-size:12px;line-height:1.6;color:var(--teal)}.chat-admin-foot [data-error=true]{color:#a24926}.chat-admin-foot button{border:0;padding:5px 0;background:transparent;font-size:12px;color:var(--muted);white-space:nowrap}.chat-admin-foot button:hover{color:var(--teal)}@media(max-width:500px){.chat-admin{padding:18px}.chat-admin-row{gap:10px}.chat-admin-actions{gap:8px}.chat-admin-foot{align-items:flex-start}}@media(prefers-reduced-motion:reduce){.chat-admin-toggle,.chat-admin-toggle span{transition:none}}
+.visitor-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px}.visitor-controls input,.visitor-controls select{font:inherit;font-size:12px;border:1px solid var(--line);border-radius:8px;padding:10px;background:#fff;color:#334d58}.visitor-controls input{width:260px;max-width:100%}.visitor-table th:nth-child(2),.visitor-table td:nth-child(2),.visitor-table th:last-child,.visitor-table td:last-child{text-align:left}.visitor-table td{vertical-align:middle}.ip-address{font-family:Consolas,monospace;font-size:12px}.source-tag{display:inline-block;border-radius:5px;padding:4px 8px;font-size:10px;background:#edf2f4;color:#6a7d88}.source-tag.machine{background:#fff1db;color:#98672c}.source-tag.browser{background:#e6f5ef;color:#087f75}.source-tag.test{background:#eaf0ff;color:#5273a8}.pagination{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:15px}.pagination>div{display:flex;align-items:center;gap:12px}.pagination button{padding:7px 11px;font-size:12px}.pagination button:disabled{cursor:default;opacity:.4}.visitor-table .small{margin-top:3px}@media(max-width:550px){.pagination{flex-wrap:wrap}.visitor-controls input{width:100%}.visitor-table{min-width:750px}}
+/* Shared admin shell; every existing control and API keeps its identity. */
+:root{--teal:#147d73;--muted:#71808f;--line:#e6eaf0;color:#223244;background:#f5f7fa;font-family:"Segoe UI","Microsoft YaHei",sans-serif}body{background:#f5f7fa}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}a{color:var(--teal)}button{font-size:12px;padding:8px 13px;border-color:#dde4ec;border-radius:8px;transition:background .15s,border-color .15s}button:hover{background:#f1f5f8;border-color:#bfccd7}button:disabled{cursor:default;opacity:.45}button.primary{background:var(--teal);color:white;border-color:var(--teal)}button.primary:hover{background:#106a62}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #a5d6cf;outline-offset:3px}h1,h2{color:#223244}h2{font-size:14px;letter-spacing:.05px}.small,.hint{font-size:12px;line-height:1.7}.panel,.card{box-shadow:0 2px 8px #293d5110;border:1px solid var(--line);border-radius:12px}.panel{padding:22px}.admin-sidebar{position:fixed;inset:0 auto 0 0;width:220px;background:#fff;border-right:1px solid var(--line);padding:28px 18px;display:flex;flex-direction:column;z-index:30}.admin-brand{display:flex;align-items:center;gap:10px;padding:0 5px;text-decoration:none;color:#233747;font-size:15px;font-weight:650;white-space:nowrap}.admin-brand-icon{display:grid;place-items:center;width:35px;height:35px;background:#147d73;border-radius:10px;color:white;flex-shrink:0}.admin-brand-icon svg{width:24px;height:24px}.admin-brand small{display:block;color:#8a98a5;font-size:10px;font-weight:400;letter-spacing:1px;margin-top:5px}.admin-nav-label{color:#9aa6b1;font-size:10px;letter-spacing:1.2px;margin:43px 14px 12px}.admin-nav{display:flex;flex-direction:column;gap:7px}.admin-nav button{display:flex;align-items:center;gap:12px;height:43px;padding:0 14px;border:0;background:transparent;color:#647587;font-size:13px;text-align:left;border-radius:8px}.admin-nav svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none;flex-shrink:0}.admin-nav button:hover{background:#f5f7fa;color:#334b5d}.admin-nav button[aria-current=page]{background:#e9f4f1;color:#14776e;font-weight:650}.admin-sidebar-foot{margin-top:auto;padding:18px 12px 0;border-top:1px solid var(--line)}.admin-sidebar-foot a{display:flex;justify-content:space-between;font-size:12px;text-decoration:none;color:#526b7d}.admin-sidebar-foot p{font-size:10px;color:#97a3ae;line-height:1.9;margin:16px 0 0}.admin-shell{max-width:1600px;margin:0 auto 0 220px;padding:0 32px 24px;min-width:0}.admin-header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:27px 0 23px}.admin-eyebrow{font-size:11px;color:#8c99a6;margin-bottom:9px}.admin-eyebrow span{padding:0 8px;color:#c6cfd6}.admin-header h1{font-size:25px;letter-spacing:-.6px;line-height:1.3;margin:0 0 8px;font-weight:650}.admin-header p{font-size:12px;color:var(--muted);margin:0}.actions{gap:8px;flex-shrink:0}.admin-filter{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:24px}.controls{margin:0;gap:12px}.dates{gap:8px}.dates input{padding:7px 9px;font-size:12px;max-width:140px;background:#fbfcfe;border-color:#e3e8ee;border-radius:6px;color:#42596b}.dates button{padding:7px 11px;border-radius:6px;background:#f5f8fa;font-size:11px}.filter{font-size:11px;color:#71808f;gap:7px}.filter input{width:14px;height:14px}.admin-filter .subtitle{margin-top:11px;padding-top:10px;border-top:1px dashed #edf0f4;font-size:10px;color:#98a2af}.admin-view{min-width:0}.admin-section-label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:24px 0 12px}.admin-section-label h2{margin:0;font-size:13px}.admin-section-label span{color:#97a3ae;font-size:10px}.cards{gap:14px}.card{padding:17px 18px}.card-head{font-size:11px;min-height:22px;color:#71808f}.mini{height:22px;width:22px;font-size:10px;background:#f3f6f9;color:#8da0b2}.value{font-size:28px;color:#263d4d;margin:10px 0 6px;letter-spacing:-.7px}.card:first-child .value{color:#263d4d}.hint{font-size:10px;color:#95a1ad}.usage-panel{margin:0;background:transparent;border:0;box-shadow:none;padding:0}.usage-panel>.panel-head h2{font-size:14px}.usage-panel>.panel-head .small{font-size:11px;color:#93a0ad}.usage-panel #usage-refresh{border:0;background:transparent;color:#638a8a;font-size:11px;padding:5px}.usage-cards{margin:16px 0 12px;gap:14px}.usage-cards>div{padding:20px 20px 18px;background:white;border:1px solid var(--line)!important;border-radius:11px;box-shadow:0 2px 8px #293d5108;min-height:111px;position:relative}.usage-cards>div:first-child{border-top:3px solid #258a7f!important;padding-top:18px}.usage-cards span{font-size:12px;color:#738393}.usage-cards strong{font-size:31px;color:#1b4d4b;margin-top:14px;letter-spacing:-.6px;line-height:1.2}.usage-cards>div:nth-child(2) strong,.usage-cards>div:nth-child(4) strong{color:#30485b}.usage-cards>div:nth-child(3) strong{color:#147d73}.usage-panel #usage-since{font-size:10px;color:#98a3af;margin:0}.usage-method{font-size:11px;border:0;padding:0;margin:7px 0 0;color:#8795a3}.usage-method summary{display:inline-block;cursor:pointer;font-size:10px;color:#81919d}.usage-method p{max-width:900px}.grid{gap:16px;margin-top:18px;grid-template-columns:minmax(0,1.8fr) minmax(240px,1fr)}.panel-head{gap:14px}.panel-head>div{min-width:0}.panel-head h2{margin-bottom:5px}.chart{height:220px;margin-top:16px}.tabs{background:#f3f6f9}.tabs button{font-size:10px;padding:6px 9px}.status-foot{font-size:10px}.status-label{font-size:11px}.table-panel{margin-top:18px}table{font-size:12px;margin-top:18px}th,td{text-align:left;padding:13px 14px}th{background:#f7f9fc;color:#8a97a5;font-size:11px;font-weight:500;height:39px;border-bottom:1px solid #e9eef3}td{color:#506477;line-height:1.6;border-color:#edf1f5;vertical-align:middle}tbody tr:hover{background:#f8fbfc}tfoot td{background:#fafcfd;color:#5a6f7e}th:first-child,td:first-child{padding-left:16px}.table-wrap{border-radius:8px;max-width:100%;min-width:0;overscroll-behavior-x:contain}.table-wrap:focus-visible{outline:2px solid #a5d6cf;outline-offset:3px}.admin-footer{display:flex;justify-content:space-between;gap:14px;margin-top:27px;padding-top:16px;border-top:1px solid #e5eaf0;color:#a0aab6;font-size:10px}.admin-method .notice{background:#f5f8fb;font-size:11px;margin-top:14px}.admin-method details{font-size:11px;line-height:1.9}.chat-admin{margin:0 0 18px}.chat-admin-toggle{width:44px;height:25px;padding:3px;border-radius:20px}.chat-admin-note{font-size:12px}.chat-admin-state{font-size:11px}.chat-admin-foot [role=status]{font-size:11px}.visitor-controls{padding:15px 0 3px;gap:9px}.visitor-controls input,.visitor-controls select{background:#fbfcfe;border-color:#e1e7ee;border-radius:7px;font-size:12px;padding:8px 10px;height:35px}.visitor-table{min-width:1140px}.visitor-table .small{font-size:10px}.ip-address{font-family:Consolas,monospace;color:#41596c}.pagination{border-top:0;margin-top:16px;gap:12px}.pagination button{padding:6px 10px;font-size:11px}.pagination .small{font-size:11px}.source-tag{border-radius:5px;padding:3px 7px;font-size:10px}.usage-active-tag{font-size:11px;font-weight:500}.failure-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 4px}.failure-meta>span{font-size:10px;padding:4px 8px;color:#7b8f9e;background:#f2f6f9;border-radius:5px}.failure-method{border:0;margin:0 0 0 auto;padding:0;font-size:11px;max-width:100%}.failure-method summary{color:#7d8c9b;cursor:pointer;white-space:nowrap}.failure-method[open]{margin:10px 0 0;flex-basis:100%;background:#f7f9fc;border:1px solid var(--line);padding:12px 14px;border-radius:7px}.failure-method p{font-size:11px;color:#7c8b99;max-width:900px;margin:9px 0 0;line-height:1.9}.failure-table{min-width:800px;table-layout:fixed}.failure-table th:nth-child(1){width:140px}.failure-table th:nth-child(2){width:145px}.failure-table th:nth-child(3){width:75px}.failure-table th:nth-child(4){width:85px}.failure-table th:nth-child(5){width:180px}.failure-table th:nth-child(6){width:190px}.failure-primary{display:block;color:#425b6c;font-variant-numeric:tabular-nums;font-size:12px}.failure-secondary{display:block;color:#98a4af;font-size:10px;margin-top:3px;line-height:1.7}.format-badge{display:inline-block;font-family:Consolas,monospace;font-size:10px;color:#60778a;background:#eef3f8;border:1px solid #e4ebf2;border-radius:5px;padding:3px 7px}.reason-badge{display:inline-block;max-width:100%;white-space:normal;font-size:11px;color:#a07443;background:#fbf4e9;padding:4px 8px;border-radius:5px;line-height:1.6}.sample-button{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border:1px solid #cfe4de;border-radius:6px;background:#f2f9f6;font-size:11px;text-decoration:none;color:#227c6e}.sample-button:hover{background:#e6f3ed}.sample-button svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.6}.sample-unavailable{font-size:11px;color:#a0aab3}.failure-table td:nth-child(2){font-family:Consolas,monospace;font-size:11px}.failure-table td:nth-child(4){font-variant-numeric:tabular-nums;color:#81909e;font-size:11px}.admin-empty{text-align:center!important;height:160px;color:#9aa6b2!important;font-size:12px}.error{font-size:12px;border-color:#f0d8cf;color:#a06142;background:#fff7f3}.admin-nav button[aria-current=page]:focus-visible{outline-color:#69b4a7}@media(max-width:1160px){.admin-sidebar{width:190px;padding:26px 13px}.admin-shell{margin-left:190px;padding:0 23px 22px}.grid{grid-template-columns:1fr}.filter{flex-basis:100%}.usage-cards strong{font-size:27px}.usage-cards>div{padding:17px 15px}.usage-cards>div:first-child{padding-top:15px}.panel{padding:20px}}@media(max-width:850px){.admin-sidebar{position:static;width:100%;padding:17px 20px 0;border:0;border-bottom:1px solid var(--line);display:block}.admin-brand{padding:0;font-size:14px}.admin-brand small{display:none}.admin-brand-icon{width:29px;height:29px;border-radius:8px}.admin-brand-icon svg{width:20px;height:20px}.admin-nav-label,.admin-sidebar-foot{display:none}.admin-nav{flex-direction:row;margin-top:14px;gap:6px;justify-content:space-between}.admin-nav button{flex:1;justify-content:center;gap:7px;height:40px;padding:0 7px;border-radius:7px 7px 0 0;font-size:12px;white-space:nowrap}.admin-nav svg{width:15px;height:15px}.admin-shell{margin:0;padding:0 20px 24px}.admin-header{padding:22px 0 20px}.admin-header h1{font-size:23px}.usage-cards,.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.usage-cards strong{font-size:29px}.filter{flex-basis:auto}.admin-footer{font-size:10px}}@media(max-width:500px){.admin-sidebar{padding:14px 14px 0}.admin-nav{gap:2px}.admin-nav button{font-size:11px;gap:5px;padding:0 4px}.admin-nav svg{width:14px;height:14px}.admin-shell{padding:0 13px 20px}.admin-header{flex-wrap:wrap;gap:16px}.admin-header h1{font-size:22px}.admin-header .actions{width:100%;justify-content:flex-end}.admin-header .actions button{font-size:11px;padding:7px 11px}.admin-eyebrow{font-size:10px;margin-bottom:8px}.admin-filter{padding:12px;margin-bottom:20px}.dates{gap:6px;display:grid;grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr);width:100%}.dates input{max-width:none;min-width:0;width:100%;font-size:11px;padding:7px 4px}.dates button{font-size:10px;padding:7px}.filter{font-size:10px;line-height:1.6}.controls{gap:12px}.admin-filter .subtitle{font-size:10px;line-height:1.9}.cards,.usage-cards{gap:10px}.usage-cards>div{min-height:103px;padding:16px 13px}.usage-cards>div:first-child{padding-top:14px}.usage-cards span{font-size:11px}.usage-cards strong{font-size:25px}.card{padding:14px}.value{font-size:25px}.card-head{font-size:10px}.mini{width:19px;height:19px}.hint{font-size:9px}.panel{padding:16px}.panel-head{gap:9px;flex-wrap:wrap}.panel-head .small{font-size:10px}.panel-head h2{font-size:13px}.usage-panel>.panel-head{flex-wrap:nowrap}.usage-panel>.panel-head .small{font-size:10px}.usage-panel #usage-refresh{font-size:10px;white-space:nowrap}.admin-section-label span{font-size:9px}.chart{height:205px}.failure-meta{gap:6px}.failure-method{margin-left:0}.failure-method summary{font-size:10px}.admin-footer{flex-direction:column;gap:5px}.pagination{flex-wrap:wrap}.visitor-controls{display:flex;flex-wrap:wrap}.visitor-controls input{width:100%;flex-basis:100%;min-width:0}.visitor-controls select{min-width:0;max-width:100%;font-size:11px}.visitor-controls .small{flex-basis:100%;font-size:10px}}@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style></head><body data-live="true">
+<aside class="admin-sidebar"><a class="admin-brand" href="#overview" aria-label="PCB 焊接助手管理后台"><span class="admin-brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><path d="M10 10h4v4h-4z"/></svg></span><span>PCB 焊接助手<small>网站管理后台</small></span></a><div class="admin-nav-label">工作空间</div><nav class="admin-nav" aria-label="后台导航"><button type="button" data-view="overview" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>数据概览</button><button type="button" data-view="visitors"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m2-15a3 3 0 0 1 0 6m4 9v-2a6 6 0 0 0-3-5"/></svg>访问明细</button><button type="button" data-view="failures"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10.3 3.8-8 14a2 2 0 0 0 1.7 3h16a2 2 0 0 0 1.7-3l-8-14a2 2 0 0 0-3.4 0Z"/><path d="M12 8v5m0 3v1"/></svg>失败排查</button><button type="button" data-view="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg>网站设置</button></nav><div class="admin-sidebar-foot"><a href="https://pcb.kn21.xyz/" target="_blank" rel="noopener">打开网站 <span aria-hidden="true">↗</span></a><p>仅管理员可见<br>所有时间均为北京时间</p></div></aside>
+<main class="shell admin-shell"><header class="admin-header"><div><div class="admin-eyebrow">管理后台 <span aria-hidden="true">/</span> pcb.kn21.xyz</div><h1 id="admin-page-title">数据概览</h1><p id="admin-page-description">了解访问、解析与活跃情况</p></div><div class="actions"><button id="export">导出汇总</button><button class="primary" id="refresh">刷新数据</button><button id="import" hidden>导入数据</button><input id="file" type="file" accept=".log,.txt,.json" hidden></div></header><section class="admin-filter" aria-label="统计范围"><div class="controls"><div class="dates"><button id="all">全部日期</button><input id="start" type="date" aria-label="开始日期"><span>至</span><input id="end" type="date" aria-label="结束日期"></div><label class="filter"><input id="filter" type="checkbox" checked>过滤明显机器流量与已排除的测试出口</label></div><p id="range" class="subtitle">正在读取数据…</p></section><div id="error" class="error" role="alert" hidden></div>
+<section id="admin-view-overview" class="admin-view" aria-label="数据概览"><section class="panel usage-panel" aria-labelledby="usage-title"><div class="panel-head"><div><h2 id="usage-title">网站实际使用</h2><div class="small">与上方日期范围一致 · 成功解析记录代表使用过解析功能</div></div><button id="usage-refresh" type="button">刷新使用情况</button></div>
+ <div class="usage-cards"><div><span>成功解析次数</span><strong id="usage-parses">—</strong></div><div><span>有解析记录的 IP</span><strong id="usage-used">—</strong></div><div><span>当前活跃 IP</span><strong id="usage-active">—</strong></div><div><span>累计活跃时长（估算）</span><strong id="usage-duration">—</strong></div></div>
+ <p class="small" id="usage-since">正在读取使用情况…</p><details class="usage-method"><summary>查看统计口径</summary><p class="small">仅累计页面在前台、窗口有焦点且近 60 秒有操作的时间；当前活跃指近 45 秒收到有效活动上报。按页面会话累计，多标签分别计时，同一 IP 可能对应多人。未上报或旧页面显示为无记录，不能据此断定没有使用。</p></details><p id="usage-error" class="error" role="alert" hidden></p>
+</section><div class="admin-section-label"><h2>访问概览</h2><span>访问日志与实际使用分别统计</span></div><section class="cards" aria-label="访问概况">
+  <article class="card"><div class="card-head"><span id="visit-label">过滤后的主页访问</span><span class="mini" aria-hidden="true">↗</span></div><div class="value" id="visits">—</div><div class="hint" id="visits-hint"></div></article>
+  <article class="card"><div class="card-head">不同访问 IP<span class="mini" aria-hidden="true">◎</span></div><div class="value" id="ips">—</div><div class="hint" id="ips-hint">IP 数不等于真实用户数</div></article>
+  <article class="card"><div class="card-head">全部请求<span class="mini" aria-hidden="true">≋</span></div><div class="value" id="requests">—</div><div class="hint">包含主页、跳转、资源与扫描请求</div></article>
+  <article class="card"><div class="card-head">404 请求占比<span class="mini" aria-hidden="true">◇</span></div><div class="value" id="errors">—</div><div class="hint" id="errors-hint"></div></article>
+ </section><section class="grid">
+  <article class="panel"><div class="panel-head"><div><h2>每日访问趋势</h2><div class="small" id="chart-subtitle">查看每天的主页访问</div></div><div class="tabs"><button id="chart-home" aria-pressed="true">主页访问</button><button id="chart-all" aria-pressed="false">全部请求</button></div></div><div class="chart" id="chart" role="img" aria-label="每日访问趋势，详细数字见下方表格"></div><div class="legend" id="legend"></div></article>
+  <article class="panel"><h2>请求响应分布</h2><div class="small">统计所选日期内的全部请求</div><div id="statuses"></div><div class="status-foot" id="status-foot"></div></article>
+ </section><section class="panel table-panel"><div class="panel-head"><div><h2>每日明细</h2><div class="small">北京时间 · 不同日期的 IP 可能重复</div></div><div class="small" id="days"></div></div><div class="table-wrap"><table><thead><tr><th>日期</th><th>全部请求</th><th>成功获取主页</th><th id="table-visit-label">过滤后主页</th><th>对应不同 IP</th></tr></thead><tbody id="tbody"></tbody><tfoot id="tfoot"></tfoot></table></div></section></section>
+<section id="admin-view-visitors" class="admin-view" aria-label="访问明细" hidden><section class="panel table-panel" id="visitor-panel"><div class="panel-head"><div><h2>IP 访问明细</h2><div class="small">估算地区 · 明细包含所选日期内的全部请求，主页筛选沿用上方过滤开关</div></div><span class="pill">仅管理员可见</span></div><div class="visitor-controls"><input id="visitor-search" placeholder="搜索 IP、地区或运营商" maxlength="64" aria-label="搜索 IP、地区或运营商"><select id="visitor-scope" aria-label="访问来源"><option value="all">全部来源</option><option value="home">主页访问</option><option value="machine">疑似机器流量</option><option value="test">已排除测试出口</option></select><select id="visitor-sort" aria-label="明细排序"><option value="recent">最近访问优先</option><option value="requests">请求次数优先</option></select><span class="small" id="geo-status"></span></div><div id="visitor-error" class="error" role="alert" hidden></div><div class="table-wrap"><table class="visitor-table"><thead><tr><th>IP 地址</th><th>估算地区 / 运营商</th><th>全部请求</th><th>成功获取主页</th><th>最近访问（北京时间）</th><th>成功解析</th><th>使用状态</th><th>活跃时长（估算）</th><th>最近解析</th><th>来源标记</th></tr></thead><tbody id="visitor-body"></tbody></table></div><div class="pagination"><span class="small" id="visitor-total">正在读取…</span><div><button id="visitor-prev">上一页</button><span id="visitor-page" class="small"></span><button id="visitor-next">下一页</button></div></div></section></section>
+<section id="admin-view-failures" class="admin-view" aria-label="失败排查" hidden><section id="failure-panel" class="panel" aria-labelledby="failure-title"><div class="panel-head"><div><h2 id="failure-title">转换失败记录</h2><div class="small">按时间查看异常，下载有效期内的原始样本</div></div><button id="failure-refresh">刷新记录</button></div><div class="failure-meta"><span>记录保留 30 天</span><span>样本保留 1 小时</span><details class="failure-method"><summary>样本使用说明</summary><p>开始解析即同意失败时上传样本，1 小时到期即不可下载，后台自动清理。文件可能包含完整工程或 ZIP 内其他设计，仅供兼容性分析，请勿运行其中程序。下载到本机的副本需管理员自行清理。未授权、超限或未完成上传的文件没有可下载样本。</p></details></div><div id="failure-error" class="error" role="alert" hidden></div><div class="table-wrap"><table class="failure-table"><thead><tr><th>失败时间</th><th>访问 IP</th><th>格式</th><th>文件大小</th><th>错误分类</th><th>排查样本</th></tr></thead><tbody id="failure-body"></tbody></table></div><div class="pagination"><span id="failure-total" class="small"></span><div><button id="failure-prev">上一页</button><span id="failure-page" class="small"></span><button id="failure-next">下一页</button></div></div></section></section>
+<section id="admin-view-settings" class="admin-view" aria-label="网站设置" hidden><section class="panel chat-admin" aria-labelledby="chat-admin-title">
+ <div class="chat-admin-row">
+  <div><h2 id="chat-admin-title">聊天室管理</h2><p class="small">控制全站聊天室的开放状态</p></div>
+  <div class="chat-admin-actions"><span id="chat-admin-state" class="chat-admin-state">读取中…</span><button id="chat-admin-toggle" class="chat-admin-toggle" type="button" role="switch" aria-label="启用聊天室" aria-checked="false" disabled><span></span></button></div>
+ </div>
+ <p class="chat-admin-note">关闭后隐藏入口，停止聊天与焊接信息同步，历史消息保留。重新开启后用户需重新加入。</p>
+ <div class="chat-admin-foot"><span id="chat-admin-feedback" role="status" aria-live="polite"></span><button id="chat-admin-refresh" type="button">刷新状态</button></div>
+</section><section class="panel admin-method"><h2>数据与统计说明</h2><div class="notice"><strong>数据说明</strong> · <span id="notice"></span> IP 数只用于观察访问趋势，仍可能包含伪装浏览器的机器人。使用计数与访问日志分别统计；使用计数不含 PCB 内容。失败原文件按页面告知暂存 1 小时。</div><details><summary>统计口径与更新方式</summary><p>服务器每 30 秒重新读取日志，页面每 60 秒更新，可点击「刷新数据」立即获取。日期筛选由服务器计算跨日去重 IP。IP 明细仅限登录后台查看，汇总导出仍不含 IP。</p><p>主页访问统计 GET / 或 /index.html 返回 200 / 304。根据爬虫标识、探测路径和测试出口过滤机器流量；过滤结果不等于确认的真实用户。服务器 IP 直访也可能计入，现有日志无法区分请求 Host。</p><p>估算地区由服务器本地 ip2region 地址库解析，不向第三方发送访客 IP。地区代表网络出口的大致位置，使用代理或 VPN 时可能不准确。共享出口的多个用户可能使用同一个 IP。</p><p>分享接口没有历史访问记录；解析次数和活跃时长从新版页面上线后统计，旧日志无法补回；使用计数不含 PCB 内容。失败排查样本按用户开始解析时的告知暂存 1 小时。</p><p id="share-note"></p><input id="exclude" hidden></details></section></section>
+<footer class="admin-footer"><span>PCB 焊接助手 · 管理后台</span><span>数据仅供使用情况与兼容性分析</span></footer></main>
+
+<script id="initial-data" type="application/json">{
+  "site": "https://pcb.kn21.xyz/",
+  "timezone": "+08:00",
+  "log_first": "2026-10-16T00:00:00+08:00",
+  "log_last": "2026-10-16T00:00:00+08:00",
+  "requests": 0,
+  "unparsed": 0,
+  "status_counts": {},
+  "homepage_success_requests": 0,
+  "homepage_success_distinct_ips": 0,
+  "remaining_browser_shaped_homepage_requests": 0,
+  "remaining_browser_shaped_distinct_ips": 0,
+  "active_unexpired_shares_at_query": null,
+  "production_modified": false,
+  "daily": [
+    {
+      "date": "2026-10-16",
+      "requests": 0,
+      "home_success": 0,
+      "home_distinct_ips": 0,
+      "remaining_browser_shaped_requests": 0,
+      "remaining_browser_shaped_distinct_ips": 0
+    }
+  ]
+}</script><script>(function(root) {
+  'use strict';
+  const bot = /bot|crawler|spider|censys|palo alto|zgrab|nmap|l9tcp|l9explore|urlscan|research|forestengine|python|curl|wget|okhttp|libredtail/i;
+  const probe = /[.]env|[.]git|wp-|phpinfo|phpunit|cgi-bin|actuator|HNAP|nmap|\/sdk|\/auth$|\/webui|geoserver|\/wiki$|sellers.json|security.txt|ReportServer|containers\/json|developmentserver|secrets|ssh\/|config[.](php|py)|Dr0v|kmonbase/i;
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const unique = rows => new Set(rows.map(r => r.ip)).size;
+  function parseLog(text, excluded = []) {
+    const rows = []; let unparsed = 0;
+    const rx = /^(\S+) \S+ \S+ \[([^\]]+)\] "([^"]*)" (\d{3}) (\d+|-) "([^"]*)" "([^"]*)"/;
+    for (const line of text.split(/\r?\n/)) {
+      if (!line.trim()) continue;
+      const m = rx.exec(line);
+      if (!m) { unparsed++; continue; }
+      const tm = /^(\d{2})\/([A-Za-z]{3})\/(\d{4}):(\d{2}:\d{2}:\d{2}) ([+-]\d{4})$/.exec(m[2]);
+      const month = tm ? months.indexOf(tm[2]) : -1;
+      const t = tm && month >= 0 ? Date.parse(`${tm[3]}-${String(month+1).padStart(2,'0')}-${tm[1]}T${tm[4]}${tm[5].slice(0,3)}:${tm[5].slice(3)}`) : NaN;
+      if (!Number.isFinite(t)) { unparsed++; continue; }
+      const parts = m[3].split(' '), path = (parts[1] || '').split('?')[0];
+      rows.push({ip:m[1], t, date:new Date(t + 8*3600000).toISOString().slice(0,10), method:parts[0], path, status:Number(m[4]), ref:m[6], ua:m[7]});
+      if (rows.length > 200000) throw Error('日志超过 20 万条，请按天拆分后导入。');
+    }
+    if (!rows.length) throw Error('没有识别到访问记录。请导入 Nginx combined 格式的访问日志。');
+    rows.sort((a,b)=>a.t-b.t);
+    const scanIps = new Set(rows.filter(r=>bot.test(r.ua) || probe.test(r.path)).map(r=>r.ip));
+    const excludedIps = new Set(excluded);
+    for (const r of rows) {
+      r.home = r.method === 'GET' && ['/', '/index.html'].includes(r.path) && [200,304].includes(r.status);
+      r.candidate = r.home && !scanIps.has(r.ip) && !excludedIps.has(r.ip) && r.ua.includes('Mozilla/');
+    }
+    const buckets = new Map();
+    for(const row of rows) {if(!buckets.has(row.date)) buckets.set(row.date,[]);buckets.get(row.date).push(row);}
+    const days = [...buckets.keys()].sort();
+    const daily = days.map(date=> {
+      const d=buckets.get(date), h=d.filter(r=>r.home), c=d.filter(r=>r.candidate);
+      return {date,requests:d.length,home_success:h.length,home_distinct_ips:unique(h),remaining_browser_shaped_requests:c.length,remaining_browser_shaped_distinct_ips:unique(c)};
+    });
+    const status_counts={}; for (const r of rows) status_counts[r.status]=(status_counts[r.status]||0)+1;
+    const h=rows.filter(r=>r.home), c=rows.filter(r=>r.candidate);
+    return {site:'https://pcb.kn21.xyz/', timezone:'+08:00', log_first:new Date(rows[0].t).toISOString(),log_last:new Date(rows.at(-1).t).toISOString(), requests:rows.length,unparsed,status_counts,
+      homepage_success_requests:h.length,homepage_success_distinct_ips:unique(h),remaining_browser_shaped_homepage_requests:c.length,remaining_browser_shaped_distinct_ips:unique(c),daily,
+      active_unexpired_shares_at_query:null, production_modified:false, _rows:rows};
+  }
+  function validateSnapshot(value) {
+    if (!value || !Array.isArray(value.daily) || !value.daily.length || value.daily.length>3700) throw Error('统计文件缺少有效的每日汇总。');
+    const number = (n,label) => { if (!Number.isSafeInteger(n) || n<0) throw Error(`${label}无效。`); return n; };
+    const daily=value.daily.map(d=>{
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(d.date) || !Number.isFinite(Date.parse(d.date)) || new Date(d.date).toISOString().slice(0,10)!==d.date) throw Error('统计日期无效。');
+      const out={date:d.date}; for(const k of ['requests','home_success','home_distinct_ips','remaining_browser_shaped_requests','remaining_browser_shaped_distinct_ips']) out[k]=number(d[k],k);
+      if (out.home_success>out.requests || out.home_distinct_ips>out.home_success || out.remaining_browser_shaped_requests>out.home_success || out.remaining_browser_shaped_distinct_ips>out.remaining_browser_shaped_requests) throw Error('统计数量不一致。');
+      return out;
+    }).sort((a,b)=>a.date.localeCompare(b.date));
+    if (new Set(daily.map(d=>d.date)).size!==daily.length) throw Error('统计日期重复。');
+    const out={site:'https://pcb.kn21.xyz/',timezone:'+08:00',daily,production_modified:false};
+    for(const k of ['requests','unparsed','homepage_success_requests','homepage_success_distinct_ips','remaining_browser_shaped_homepage_requests','remaining_browser_shaped_distinct_ips']) out[k]=number(value[k],k);
+    const status_counts={}; for(const [k,v] of Object.entries(value.status_counts||{})) {if(!/^[1-5]\d{2}$/.test(k)) throw Error('响应状态无效。');status_counts[k]=number(v,k);}
+    out.status_counts=status_counts;
+    for(const k of ['log_first','log_last']) {if (typeof value[k]!=='string' || !Number.isFinite(Date.parse(value[k]))) throw Error('统计时间无效。');out[k]=value[k];}
+    const sum=k=>daily.reduce((n,d)=>n+d[k],0);
+    if(sum('requests')!==out.requests || sum('home_success')!==out.homepage_success_requests || sum('remaining_browser_shaped_requests')!==out.remaining_browser_shaped_homepage_requests || Object.values(status_counts).reduce((a,b)=>a+b,0)!==out.requests || Date.parse(out.log_first)>Date.parse(out.log_last)) throw Error('汇总数量或时间不一致。');
+    if(out.homepage_success_distinct_ips>out.homepage_success_requests || out.remaining_browser_shaped_distinct_ips>out.remaining_browser_shaped_homepage_requests) throw Error('IP 数量不一致。');
+    out.active_unexpired_shares_at_query=value.active_unexpired_shares_at_query==null?null:number(value.active_unexpired_shares_at_query,'分享数量');
+    return out;
+  }
+  function stats(data, start, end, filtered=true) {
+    const daily=data.daily.filter(d=>d.date>=start && d.date<=end);
+    const sum=k=>daily.reduce((n,d)=>n+d[k],0), all=daily.length===data.daily.length;
+    const rows=data._rows?.filter(r=>r.date>=start && r.date<=end);
+    const selected=rows?.filter(r=>filtered?r.candidate:r.home);
+    const ip=rows?unique(selected):all?(filtered?data.remaining_browser_shaped_distinct_ips:data.homepage_success_distinct_ips):daily.length===1?daily[0][filtered?'remaining_browser_shaped_distinct_ips':'home_distinct_ips']:daily.length===0?0:null;
+    const status={}; if(rows) for(const r of rows) status[r.status]=(status[r.status]||0)+1; else if(all) Object.assign(status,data.status_counts);
+    return {daily,requests:sum('requests'),home:sum('home_success'),visits:sum(filtered?'remaining_browser_shaped_requests':'home_success'),ip,status:rows||all?status:null};
+  }
+  function exportSnapshot(data) {
+    const out=validateSnapshot(data);
+    out.limitations=['IP counts are not confirmed users','request Host is absent from access log','browser-side actions are not instrumented','share lifetime history is unavailable'];
+    return out;
+  }
+  const api={parseLog,validateSnapshot,stats,exportSnapshot};
+  if(typeof module!=='undefined' && module.exports) module.exports=api;
+  else root.Analytics=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+</script><script>'use strict';
+const $=id=>document.getElementById(id), fmt=n=>n==null?'—':n.toLocaleString('zh-CN');
+let data=Analytics.validateSnapshot(JSON.parse($('initial-data').textContent)), chartMode='home', source='snapshot';
+const live=document.body.dataset.live==='true';let serverStats=null,checkedAt='',requestSequence=0,allDates=true;
+const svgNS='http://www.w3.org/2000/svg';
+const time=t=>new Date(t).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false});
+function el(tag,text,className){const e=document.createElement(tag);if(text!=null)e.textContent=text;if(className)e.className=className;return e;}
+function s(tag,attrs,text){const e=document.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text!=null)e.textContent=text;return e;}
+function error(message){$('error').textContent=message;$('error').hidden=!message;}
+function reset(){for(const id of ['start','end']){$(id).min=data.daily[0].date;$(id).max=data.daily.at(-1).date;} $('start').value=data.daily[0].date;$('end').value=data.daily.at(-1).date;render();}
+function render(){
+ const start=$('start').value,end=$('end').value, filtered=$('filter').checked;
+ if(!start||!end||start>end){error('请选择有效的日期范围，开始日期不能晚于结束日期。');return;}
+ error('');const v=live?serverStats:Analytics.stats(data,start,end,filtered);if(!v)return;
+ $('range').textContent=`${time(data.log_first)} — ${time(data.log_last)} · 北京时间 · ${live?'服务器日志 · 每分钟更新':source==='log'?'导入日志，不会自动更新':'统计快照，不会自动更新'}`;
+ $('visits').textContent=fmt(v.visits);$('ips').textContent=fmt(v.ip);$('requests').textContent=fmt(v.requests);
+ $('visit-label').textContent=filtered?'过滤后的主页访问':'成功获取主页';
+ $('visits-hint').textContent=filtered?`原始主页请求 ${fmt(v.home)} 次`:'含爬虫与自动扫描，按请求计数';
+ $('ips-hint').textContent=v.ip==null?'快照无法对所选多日跨日去重':'IP 数不等于真实用户数';
+ $('errors').textContent=v.status&&v.requests?`${((v.status[404]||0)/v.requests*100).toFixed(1)}%`:'—';
+ $('errors-hint').textContent=v.status?`${fmt(v.status[404]||0)} 次 404 · 不代表解析失败`:'快照缺少所选日期的响应分布';
+ $('days').textContent=`${v.daily.length} 个有记录的日期`;
+ $('table-visit-label').textContent=filtered?'过滤后主页':'主页请求（未过滤）';
+ $('tbody').replaceChildren();
+ for(const d of v.daily){const row=el('tr'), date=el('td',d.date);if(d.date===new Date(Date.parse(data.log_first)+8*3600000).toISOString().slice(0,10)||d.date===new Date(Date.parse(data.log_last)+8*3600000).toISOString().slice(0,10))date.append(el('span','边界日期','tag'));row.append(date);for(const n of [d.requests,d.home_success,filtered?d.remaining_browser_shaped_requests:d.home_success,filtered?d.remaining_browser_shaped_distinct_ips:d.home_distinct_ips])row.append(el('td',fmt(n)));$('tbody').append(row);}
+ if(!v.daily.length){const td=el('td','所选日期没有访问记录');td.colSpan=5;td.style.textAlign='center';const tr=el('tr');tr.append(td);$('tbody').append(tr);}
+ const total=el('tr');for(const n of ['区间合计',fmt(v.requests),fmt(v.home),fmt(v.visits),fmt(v.ip)])total.append(el('td',n));$('tfoot').replaceChildren(total);
+ $('chart-home').setAttribute('aria-pressed',chartMode==='home');$('chart-all').setAttribute('aria-pressed',chartMode==='all');
+ $('chart-subtitle').textContent=chartMode==='home'?'成功获取主页的请求次数':'包含资源、跳转、爬虫与扫描';
+ drawChart(v,filtered);drawStatuses(v);
+ $('notice').textContent=`${live?'服务器汇总，更新于 '+time(checkedAt)+'。':source==='log'?'导入的访问日志已在浏览器中处理。':'当前展示已核对的日志汇总，数据截止 '+time(data.log_last)+'。'}${data.unparsed?' 有 '+fmt(data.unparsed)+' 行未识别，未计入统计。':''}`;
+ $('share-note').textContent=data.active_unexpired_shares_at_query==null?'当前导入数据没有分享统计。访问日志不能推断分享数量。':`原始汇总查询时有 ${fmt(data.active_unexpired_shares_at_query)} 条未过期分享。这是当时的快照，无法反映累计分享次数或当前实时数量。`;
+}
+function drawChart(v,filtered){
+ const host=$('chart');host.replaceChildren();$('legend').replaceChildren();if(!v.daily.length){host.append(el('div','所选日期暂无记录','empty'));return;}
+ const svg=s('svg',{viewBox:'0 0 660 236','aria-hidden':'true'}), maxValue=Math.max(...v.daily.map(d=>chartMode==='all'?d.requests:d.home_success),1), step=Math.max(1,Math.ceil(maxValue/4)), top=step*4, plotH=174, left=44, width=595, n=v.daily.length;
+ for(let i=0;i<=4;i++){const y=12+plotH-i*plotH/4;svg.append(s('line',{x1:left,y1:y,x2:645,y2:y,stroke:'#edf2f3'}),s('text',{x:left-10,y:y+4,'text-anchor':'end',fill:'#8a9ba3','font-size':10},fmt(i*step)));}
+ const slot=width/n, bar=Math.max(.5,Math.min(36,slot*.38));
+ v.daily.forEach((d,i)=>{const center=left+slot*(i+.5), original=chartMode==='all'?d.requests:d.home_success, selected=filtered?d.remaining_browser_shaped_requests:d.home_success;
+  const rect=(x,value,color,label)=>{const h=value/top*plotH,r=s('rect',{x,y:12+plotH-h,width:bar,height:h,rx:Math.min(4,bar/3),fill:color});r.append(s('title',{},`${d.date} · ${label} ${value} 次`));svg.append(r);};
+  if(chartMode==='home'&&filtered){rect(center-bar-2,original,'#dce6e9','原始主页');rect(center+2,selected,'#087f75','过滤后主页');}else rect(center-bar/2,original,'#087f75',chartMode==='all'?'全部请求':'主页请求');
+  if(n<=12||i%Math.ceil(n/8)===0||i===n-1)svg.append(s('text',{x:center,y:211,'text-anchor':'middle',fill:'#6a7d88','font-size':10},d.date.slice(5).replace('-','/')));
+  const paired=chartMode==='home'&&filtered, labelValue=paired?selected:original;
+  if(n<=7)svg.append(s('text',{x:paired?center+2+bar/2:center,y:Math.max(10,12+plotH-labelValue/top*plotH-8),'text-anchor':'middle',fill:paired?'#087f75':'#516973','font-size':11},fmt(labelValue)));
+ });host.append(svg);
+ const legend=(text,gray=false)=>{const e=el('span'), dot=el('i',null,'dot'+(gray?' gray':''));e.append(dot,document.createTextNode(text));$('legend').append(e);};
+ if(chartMode==='home'&&filtered){legend('过滤后主页访问');legend('原始主页请求',true);}else legend(chartMode==='all'?'全部请求':'主页请求（未过滤）');
+}
+function drawStatuses(v){
+ const host=$('statuses');host.replaceChildren();if(!v.status){host.append(el('div','所选日期的响应分布不可用','empty'));$('status-foot').textContent='导入原始日志后即可按日期筛选响应状态。';return;}
+ const groups=[['正常响应 · 2xx',n=>n>=200&&n<300,'#087f75'],['跳转 / 缓存 · 3xx',n=>n>=300&&n<400,'#7692dd'],['请求错误 · 4xx',n=>n>=400&&n<500,'#dfa05e'],['服务错误 · 5xx',n=>n>=500,'#bf6d73']];
+ for(const [label,match,color] of groups){const count=Object.entries(v.status).reduce((n,[k,c])=>n+(match(Number(k))?c:0),0),row=el('div',null,'status-row'),head=el('div',null,'status-label');head.append(el('span',label),el('span',`${fmt(count)} · ${v.requests?(count/v.requests*100).toFixed(1):'0.0'}%`));const track=el('div',null,'track'),fill=el('div',null,'fill');fill.style.width=(v.requests?count/v.requests*100:0)+'%';fill.style.background=color;track.append(fill);row.append(head,track);host.append(row);}
+ $('status-foot').textContent='404 多数来自资源缺失或扫描路径；这些请求不等于用户解析 PCB 失败。';
+}
+$('all').onclick=()=>{allDates=true;live?refreshLive():reset();};for(const id of ['start','end','filter'])$(id).addEventListener('change',()=>{if(id!=='filter')allDates=false;live?refreshLive():render();});
+$('chart-home').onclick=()=>{chartMode='home';render();};$('chart-all').onclick=()=>{chartMode='all';render();};
+$('import').onclick=()=>$('file').click();
+$('file').onchange=async()=>{
+ const file=$('file').files[0];if(!file)return;$('import').disabled=true;$('import').textContent='读取中…';
+ try{if(file.size>30*1024*1024)throw Error('文件大于 30 MB，请按天拆分日志后导入。');const text=await file.text();let next,kind;
+  if(file.name.toLowerCase().endsWith('.json')||text.trimStart().startsWith('{')){next=Analytics.validateSnapshot(JSON.parse(text));kind='snapshot';}
+  else{next=Analytics.parseLog(text,$('exclude').value.split(/[,，\s]+/).filter(Boolean));kind='log';}
+  data=next;source=kind;reset();
+ }catch(e){error(e instanceof SyntaxError?'JSON 文件无法读取，请选择有效的统计汇总文件。':e.message||'导入失败。');}
+ finally{$('file').value='';$('import').disabled=false;$('import').textContent='导入数据';}
+};
+$('export').onclick=()=>{const blob=new Blob([JSON.stringify(Analytics.exportSnapshot(data),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=`pcb-usage-${new Date(Date.parse(data.log_last)+8*3600000).toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+async function refreshLive(){
+ const sequence=++requestSequence;const btn=$('refresh');btn.disabled=true;btn.textContent='刷新中…';
+ const query=new URLSearchParams({filtered:$('filter').checked?'1':'0'});
+ if(!allDates){const start=$('start').value,end=$('end').value;if(!start||!end||start>end){error('请选择有效的日期范围。');btn.disabled=false;btn.textContent='刷新数据';return;}query.set('start',start);query.set('end',end);}
+ try{const response=await fetch('data?'+query,{cache:'no-store',credentials:'same-origin',signal:AbortSignal.timeout(15000)});if(!response.ok)throw Error(response.status===401?'登录已失效，请重新打开页面登录。':'暂时无法读取服务器统计，请稍后刷新。');const result=await response.json();if(sequence!==requestSequence)return;
+  const next=Analytics.validateSnapshot(result.snapshot), selected=result.selected;if(!selected||!Array.isArray(selected.daily)||!['requests','home','visits','ip'].every(k=>Number.isSafeInteger(selected[k])&&selected[k]>=0)||!selected.status||!Number.isFinite(Date.parse(result.checked_at)))throw Error('服务器返回的统计数据无效。');
+  data=next;serverStats=selected;checkedAt=result.checked_at;source='server';
+  for(const id of ['start','end']){$(id).min=data.daily[0].date;$(id).max=data.daily.at(-1).date;}
+  $('start').value=selected.start;$('end').value=selected.end;render();loadVisitors();document.dispatchEvent(new Event('pcb-stats-updated'));
+ }catch(e){if(sequence===requestSequence)error(e.message||'更新失败，请重试。');}
+ finally{if(sequence===requestSequence){btn.disabled=false;btn.textContent='刷新数据';}}
+}
+let visitorPage=1,visitorSequence=0,visitorKey='',visitorTimer;
+async function loadVisitors(){
+ if(!live)return;
+ const base={start:$('start').value,end:$('end').value,scope:$('visitor-scope').value,q:$('visitor-search').value.trim(),sort:$('visitor-sort').value,filtered:$('filter').checked?'1':'0'},key=JSON.stringify(base);
+ if(key!==visitorKey){visitorPage=1;visitorKey=key;}
+ const sequence=++visitorSequence,query=new URLSearchParams({...base,page:String(visitorPage)});
+ try{const response=await fetch('visitors?'+query,{cache:'no-store',credentials:'same-origin',signal:AbortSignal.timeout(15000)});if(!response.ok)throw Error('暂时无法读取 IP 明细，请刷新重试。');const result=await response.json();if(sequence!==visitorSequence)return;
+  if(!Array.isArray(result.items)||!Number.isSafeInteger(result.total)||!Number.isSafeInteger(result.page)||!Number.isSafeInteger(result.page_size))throw Error('IP 明细返回格式无效。');
+  visitorPage=result.page;$('visitor-error').hidden=true;$('visitor-body').replaceChildren();
+  const kinds={machine:['疑似机器','machine'],test:['已排除测试','test'],browser:['浏览器形式','browser'],unknown:['未识别','unknown']};
+  for(const item of result.items){const row=el('tr'),ip=el('td',item.ip);ip.className='ip-address';const location=el('td');location.append(el('div',item.region||'未识别'),el('div',item.isp||'运营商未识别','small'));row.append(ip,location,el('td',fmt(item.requests)),el('td',fmt(item.home_visits)),el('td',time(item.last_visit)));const usage=item.usage,ms=usage?.active_ms||0,minutes=Math.floor(ms/60000),duration=minutes>=60?Math.floor(minutes/60)+'时 '+minutes%60+'分':minutes?minutes+'分':Math.floor(ms/1000)+'秒';row.append(el('td',usage?String(usage.parses):'—'),el('td',!usage?'不可用':usage.active_now?'当前活跃':usage.sessions?'有使用记录':'暂无上报',usage?.active_now?'usage-active-tag':''),el('td',usage?duration:'—'),el('td',usage?.last_parse?time(usage.last_parse*1000):'—'));const kind=el('td'),label=kinds[item.kind]||kinds.unknown;kind.append(el('span',label[0],'source-tag '+label[1]));row.append(kind);$('visitor-body').append(row);}
+  if(!result.items.length){const tr=el('tr'),td=el('td','没有匹配的 IP 访问记录');td.colSpan=10;td.style.textAlign='center';tr.append(td);$('visitor-body').append(tr);}
+  const pages=Math.max(1,Math.ceil(result.total/result.page_size));$('visitor-total').textContent=`共 ${fmt(result.total)} 个不同 IP · 每页 ${result.page_size} 条`;$('visitor-page').textContent=`${result.page} / ${pages}`;$('visitor-prev').disabled=result.page<=1;$('visitor-next').disabled=result.page>=pages;
+  $('geo-status').textContent=result.geo?.ipv4&&result.geo?.ipv6?'离线地址库已就绪（IPv4 / IPv6）':'部分地址库未就绪，地区可能不可用';
+ }catch(e){if(sequence===visitorSequence){$('visitor-error').hidden=false;$('visitor-error').textContent=e.message||'明细更新失败。';}}
+}
+if(live){
+ document.addEventListener('pcb-usage-updated',loadVisitors);
+ $('refresh').onclick=refreshLive;
+ $('visitor-search').addEventListener('input',()=>{clearTimeout(visitorTimer);visitorTimer=setTimeout(loadVisitors,300);});
+ for(const id of ['visitor-scope','visitor-sort'])$(id).onchange=loadVisitors;
+ $('visitor-prev').onclick=()=>{visitorPage--;loadVisitors();};$('visitor-next').onclick=()=>{visitorPage++;loadVisitors();};
+ refreshLive();setInterval(refreshLive,60000);
+}else reset();
+</script><script>(()=>{'use strict';
+ const $=id=>document.getElementById(id),labels={unsupported:'格式／选择方式不支持',too_large:'文件大小超限',timeout:'解析超时',archive:'压缩包异常',invalid_pad:'焊盘尺寸异常',no_board:'未找到板图／图层',invalid_data:'文件数据异常',parser_error:'解析异常'};
+ let page=1,busy=false,pending=false,total=0;
+ const tz={timeZone:'Asia/Shanghai',hour12:false},date=value=>new Date(value*1000).toLocaleString('zh-CN',tz);
+ const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e};
+ const size=bytes=>bytes<1024?bytes+' B':bytes<1048576?(bytes/1024).toFixed(1)+' KB':(bytes/1048576).toFixed(1)+' MB';
+ function row(item){
+  const tr=node('tr'),time=node('td'),when=new Date(item.created*1000);
+  time.append(node('span',when.toLocaleTimeString('zh-CN',tz),'failure-primary'),node('span',when.toLocaleDateString('zh-CN',{timeZone:'Asia/Shanghai'}),'failure-secondary'));
+  tr.append(time,node('td',item.ip));const format=node('td');format.append(node('span',item.format.toUpperCase(),'format-badge'));tr.append(format,node('td',size(item.size)));
+  const reason=node('td');reason.append(node('span',labels[item.reason]||'解析异常','reason-badge'));tr.append(reason);
+  const sample=node('td');
+  if(item.saved&&item.expires>Date.now()/1000){
+   const a=node('a','下载样本','sample-button');a.href='/stats/failures/'+item.id+'/sample';a.setAttribute('download','');a.title='有效期至 '+date(item.expires);
+   const icon=document.createElementNS('http://www.w3.org/2000/svg','svg');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');const path=document.createElementNS(icon.namespaceURI,'path');path.setAttribute('d','M12 3v12m-4-4 4 4 4-4M4 15v5h16v-5');icon.append(path);a.prepend(icon);sample.append(a,node('span','约 '+Math.max(1,Math.ceil((item.expires-Date.now()/1000)/60))+' 分钟后到期','failure-secondary'));
+  }else{sample.append(node('span',item.consent&&item.expires<=Date.now()/1000?'样本已到期':'暂无样本','sample-unavailable'));sample.append(node('span',!item.consent?'未授权上传':item.expires<=Date.now()/1000?'已禁止下载并清理':'超限或上传未完成','failure-secondary'))}
+  tr.append(sample);return tr;
+ }
+ async function load(){if(busy){pending=true;return}busy=true;$('failure-refresh').disabled=true;$('failure-prev').disabled=true;$('failure-next').disabled=true;
+  try{const query=new URLSearchParams({page:String(page),start:$('start')?.value||'2000-01-01',end:$('end')?.value||'2099-12-31'});
+   const r=await fetch('/stats/failures?'+query,{cache:'no-store',signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('失败记录暂不可用，请刷新重试');const data=await r.json();
+   if(!Array.isArray(data.items)||!Number.isSafeInteger(data.total)||data.total<0)throw Error('失败记录格式无效');total=data.total;
+   $('failure-body').replaceChildren(...data.items.map(row));
+   if(!data.items.length){const tr=node('tr'),td=node('td','所选日期暂无失败记录','admin-empty');td.colSpan=6;tr.append(td);$('failure-body').append(tr)}
+   $('failure-total').textContent='共 '+total+' 条记录 · 每页 25 条';$('failure-page').textContent=page+' / '+Math.max(1,Math.ceil(total/25));$('failure-error').hidden=true;
+  }catch(e){$('failure-error').textContent=e.message;$('failure-error').hidden=false}finally{busy=false;$('failure-refresh').disabled=false;$('failure-prev').disabled=page<=1;$('failure-next').disabled=page*25>=total;if(pending){pending=false;load()}}}
+ $('failure-refresh').onclick=()=>load();$('failure-prev').onclick=()=>{page=Math.max(1,page-1);load()};$('failure-next').onclick=()=>{page++;load()};document.addEventListener('pcb-stats-updated',()=>{page=1;load()});setInterval(()=>{if(!document.hidden)load()},60000);load();
+})();
+</script><script>(()=>{
+ 'use strict';
+ const $=id=>document.getElementById(id);if(!$('usage-refresh'))return;let busy=false,again=false;
+ const duration=ms=>{const seconds=Math.floor(ms/1000);if(seconds<60)return seconds+' 秒';const minutes=Math.floor(seconds/60);return minutes<60?minutes+' 分钟':Math.floor(minutes/60)+' 小时 '+minutes%60+' 分钟'};
+ async function load(){if(busy){again=true;return}busy=true;$('usage-refresh').disabled=true;
+  const query=new URLSearchParams();for(const id of ['start','end'])if($(id).value)query.set(id,$(id).value);
+  try{const response=await fetch('/stats/usage?'+query,{cache:'no-store',credentials:'same-origin',signal:AbortSignal.timeout(7000)});if(!response.ok)throw Error('使用情况暂时不可用，请稍后刷新');const data=await response.json();
+   if(!['parses','used_ips','active_ips','active_ms'].every(k=>Number.isFinite(data[k])&&data[k]>=0))throw Error('使用统计格式无效');
+   $('usage-parses').textContent=data.parses.toLocaleString('zh-CN');$('usage-used').textContent=data.used_ips.toLocaleString('zh-CN');$('usage-active').textContent=data.active_ips.toLocaleString('zh-CN');$('usage-duration').textContent=duration(data.active_ms);
+   $('usage-since').textContent=(data.since?'最早记录 '+new Date(data.since*1000).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}):'暂未收到使用记录')+' · 仅有更新上线后的数据，保留最近 90 天'+(data.capped?' · 当前汇总最多包含 10,000 个 IP':'');$('usage-error').hidden=true;document.dispatchEvent(new Event('pcb-usage-updated'));
+  }catch(error){for(const id of ['usage-parses','usage-used','usage-active','usage-duration'])$(id).textContent='—';$('usage-error').textContent=error.message;$('usage-error').hidden=false}
+  finally{busy=false;$('usage-refresh').disabled=false;if(again){again=false;load()}}
+ }
+ $('usage-refresh').onclick=load;document.addEventListener('pcb-stats-updated',load);setInterval(()=>{if(!document.hidden)load()},15000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)load()});load();
+})();
+</script><script>(()=>{
+ 'use strict';
+ const toggle=document.getElementById('chat-admin-toggle');if(!toggle)return;
+ const state=document.getElementById('chat-admin-state'),feedback=document.getElementById('chat-admin-feedback'),refresh=document.getElementById('chat-admin-refresh');
+ let enabled=null,busy=false;
+ function notice(text,error=false){feedback.textContent=text;feedback.dataset.error=String(error)}
+ function render(){toggle.disabled=busy||enabled===null;refresh.disabled=busy;toggle.setAttribute('aria-checked',String(enabled===true));state.textContent=enabled===null?'状态不可用':enabled?'已开启':'已关闭';state.dataset.enabled=String(enabled);toggle.setAttribute('aria-busy',String(busy))}
+ async function request(value){
+  const response=await fetch('/stats/chat-settings',{method:value===undefined?'GET':'POST',headers:value===undefined?undefined:{'Content-Type':'application/json'},body:value===undefined?undefined:JSON.stringify({enabled:value}),cache:'no-store',credentials:'same-origin',signal:AbortSignal.timeout(7000)});
+  let data;try{data=await response.json()}catch{throw Error('无法读取聊天室状态，请稍后重试')}
+  if(!response.ok)throw Error(response.status===401?'登录已过期，请重新登录后台':data.error||'聊天室管理暂不可用');
+  if(typeof data.enabled!=='boolean')throw Error('聊天室状态无效，请刷新后重试');return data.enabled;
+ }
+ async function load(){if(busy)return;busy=true;render();try{enabled=await request();notice('状态已同步')}catch(error){enabled=null;notice(error.message,true)}finally{busy=false;render()}}
+ toggle.onclick=async()=>{if(busy||enabled===null)return;busy=true;render();notice('正在保存…');try{enabled=await request(!enabled);notice(enabled?'聊天室已开启，用户可以再次加入':'聊天室已关闭，已停止聊天与焊接信息同步')}catch(error){enabled=null;notice(error.message+'；请刷新状态确认。',true)}finally{busy=false;render()}};
+ refresh.onclick=load;document.addEventListener('visibilitychange',()=>{if(!document.hidden)load()});setInterval(()=>{if(!document.hidden)load()},30000);load();
+})();
+</script><script>(()=>{'use strict';
+ const views={overview:['数据概览','了解访问、解析与活跃情况'],visitors:['访问明细','按 IP 查看访问来源、解析次数与活跃时间'],failures:['失败排查','查看转换异常，在样本到期前下载分析'],settings:['网站设置','管理聊天室开关与统计说明']};
+ const buttons=[...document.querySelectorAll('.admin-nav [data-view]')];
+ function show(name,focus=false){
+  if(!views[name])name='overview';
+  for(const [key] of Object.entries(views))document.getElementById('admin-view-'+key).hidden=key!==name;
+  for(const button of buttons){if(button.dataset.view===name)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current')}
+  document.getElementById('admin-page-title').textContent=views[name][0];document.getElementById('admin-page-description').textContent=views[name][1];
+  document.querySelector('.admin-filter').hidden=name==='settings';
+  document.querySelector('.filter').hidden=name==='failures'||name==='settings';
+  document.querySelector('.actions').hidden=name==='failures'||name==='settings';
+  document.getElementById('export').hidden=name!=='overview';
+  document.title=views[name][0]+' · PCB 焊接助手后台';
+  if(focus)window.scrollTo({top:0,behavior:'instant'});
+ }
+ for(const button of buttons)button.onclick=()=>{history.replaceState(null,'','#'+button.dataset.view);show(button.dataset.view,true)};
+ window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+ for(const wrapper of document.querySelectorAll('.table-wrap')){wrapper.tabIndex=0;wrapper.setAttribute('aria-label','数据表格，可横向滚动')}
+ show(location.hash.slice(1));
+})();
+</script></body></html>

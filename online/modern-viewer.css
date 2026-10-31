@@ -1,0 +1,36 @@
+/* A quieter visual layer; PCB geometry and assembly behavior are unchanged. */
+#topmostdiv{font-family:"Segoe UI","Microsoft YaHei",sans-serif;--app-line:color-mix(in srgb,var(--ui-text) 10%,var(--ui-panel-bg));--app-head:color-mix(in srgb,var(--ui-text) 3%,var(--ui-panel-bg));--app-blue:#2563eb;--app-selected:color-mix(in srgb,#3b82f6 11%,var(--ui-panel-bg))}
+#topmostdiv.theme-light{--ui-bg:#fff;--ui-text:#27374f;--ui-muted:#7b8ba3;--ui-panel-bg:#fff;--ui-border:#e1e7f0;--ui-border-strong:#c7d3e2;--ui-hover-bg:#f3f6fb;--ui-input-bg:#f8fafd;--ui-input-focus-bg:#fff;--ui-input-focus-border:#8aaff1;--ui-gutter-bg:#edf1f6;--ui-link:#2563eb}
+#topmostdiv #top{background:var(--ui-panel-bg);border-bottom:1px solid var(--app-line)}
+#topmostdiv #top .button-container{background:var(--ui-hover-bg);padding:3px;border-radius:8px;gap:2px}
+#topmostdiv #top .button-container button{color:var(--ui-muted);font-weight:500;transition:background-color .15s,color .15s}
+#topmostdiv #top .button-container button.depressed{background:var(--ui-panel-bg);color:var(--app-blue);box-shadow:0 1px 4px #19385e12}
+#topmostdiv #bomdiv{background:var(--ui-panel-bg)}
+#topmostdiv #board-progress-tools{border-bottom:0;background:var(--ui-panel-bg)}
+#topmostdiv #board-progress-counts{color:var(--ui-text);font-size:12px;font-variant-numeric:tabular-nums}
+#topmostdiv #board-progress-meter::-webkit-progress-bar{background:var(--ui-hover-bg)}
+#topmostdiv #board-export-open{border-color:var(--app-line);border-radius:7px;color:var(--ui-link);background:var(--ui-panel-bg)}
+#topmostdiv #bomdiv #bom-search-tools{border-bottom:1px solid var(--app-line);padding-top:2px;padding-bottom:8px}
+#topmostdiv #bom-search-tools .searchbox{border-color:var(--app-line);border-radius:7px;transition:border-color .15s,background-color .15s}
+#topmostdiv #bom-search-tools .searchbox:focus{outline:2px solid color-mix(in srgb,#3b82f6 18%,transparent);outline-offset:0;border-color:#8aaff1}
+#topmostdiv #bom-search-tools #copy{border-color:var(--app-line);border-radius:7px;background-color:var(--ui-panel-bg)}
+#topmostdiv .bom{font-family:"Segoe UI","Microsoft YaHei",sans-serif;font-size:12px;border-collapse:separate;border-spacing:0;border:0;border-radius:0;margin-top:0;background:var(--ui-panel-bg);color:var(--ui-text)}
+#topmostdiv .bom th,#topmostdiv .bom td{border:0;border-bottom:1px solid var(--app-line);padding:7px 10px;line-height:1.6;vertical-align:middle;background:transparent}
+#topmostdiv .bom th{height:32px;box-sizing:border-box;background:var(--app-head);color:var(--ui-muted);font-size:11px;font-weight:600;white-space:nowrap}
+#topmostdiv .bom td{height:33px;box-sizing:border-box;font-variant-numeric:tabular-nums}
+#topmostdiv .bom td:first-child{color:var(--ui-muted);font-size:11px}
+#topmostdiv .bom th.numCol,#topmostdiv .bom td:first-child{width:32px;padding-left:4px!important;padding-right:4px!important;white-space:nowrap}
+#topmostdiv .bom th.bom-checkbox{width:56px;min-width:56px;padding-left:4px!important;padding-right:4px!important}
+#topmostdiv .bom td:nth-child(3),#topmostdiv .bom td:nth-child(4),#topmostdiv .bom td:nth-child(5){text-align:left}
+#topmostdiv .bom tbody tr:nth-child(n){background:var(--ui-panel-bg)}
+#topmostdiv .bom tbody tr:hover{background:var(--ui-hover-bg)}
+#topmostdiv .bom tbody tr.highlighted:nth-child(n){background:var(--app-selected);outline:0}
+#topmostdiv .bom tbody tr.highlighted td:first-child{box-shadow:inset 3px 0 var(--app-blue)}
+#topmostdiv .bom tbody tr.checked{color:var(--ui-muted)}
+#topmostdiv .bom input[type=checkbox]{width:14px;height:14px;margin:0;accent-color:var(--app-blue);cursor:pointer;vertical-align:middle}
+#topmostdiv .bom mark.highlight{background:color-mix(in srgb,#3b82f6 17%,var(--ui-panel-bg));color:var(--ui-text);border-radius:3px;padding:1px 2px}
+#topmostdiv #top .menu-content{padding:10px;border:1px solid var(--app-line);border-radius:12px;box-shadow:0 12px 36px #122c4b1a}
+#topmostdiv #top .menu-label{border-color:var(--app-line);font-size:12px;color:var(--ui-text)}
+#topmostdiv.dark #top .menubtn,#topmostdiv.dark #top .statsbtn,#topmostdiv.dark #top .iobtn,#topmostdiv.dark #bom-search-tools #copy{background-color:transparent;filter:invert(.85)}
+@media(max-width:1024px){#topmostdiv .bom{font-size:12px!important}#topmostdiv .bom th{font-size:11px!important}#topmostdiv .bom th,#topmostdiv .bom td{padding:6px 8px!important}#topmostdiv .bom input[type=checkbox]{min-width:18px;min-height:18px}}
+@media print{#topmostdiv .bom th,#topmostdiv .bom td{color:#222;border-bottom:1px solid #ddd}#topmostdiv .bom tbody tr:nth-child(n){background:white}}

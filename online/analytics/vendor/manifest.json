@@ -1,0 +1,38 @@
+{
+  "project": "https://github.com/lionsoul2014/ip2region",
+  "revision": "1bf6cabfb63c1a14af0971749c2120a3e5c77d72",
+  "files": [
+    {
+      "source": "binding/python/ip2region/__init__.py",
+      "path": "vendor/ip2region/__init__.py",
+      "sha256": "1cb7dfe6b8b19feff29bf9c9a3107b34ee856d19817a5ac1e464070ddb330b5d"
+    },
+    {
+      "source": "binding/python/ip2region/searcher.py",
+      "path": "vendor/ip2region/searcher.py",
+      "sha256": "621c93ae7a3bc858cef994b2ed99551550c3574fb0e6d537affd1b4458d9a0d8"
+    },
+    {
+      "source": "binding/python/ip2region/util.py",
+      "path": "vendor/ip2region/util.py",
+      "sha256": "eda5592a77007bf3a2cf4255a7eb7372cf57a7db844e5238231843bf3bfeab9e"
+    },
+    {
+      "source": "LICENSE.md",
+      "path": "vendor/LICENSE.ip2region.txt",
+      "sha256": "fe01f2f8fcaafac539154e6aa80b0b7f8af54e01dc4d52322f72971991c6280e"
+    },
+    {
+      "source": "data/ip2region_v4.xdb",
+      "path": "vendor/ip2region_v4.xdb",
+      "sha256": "27ecba8c9a6d5e3b280aedbe7ee15c65372b179fbd0dad3845d8c608f2fcace1",
+      "bytes": 11122642
+    },
+    {
+      "source": "data/ip2region_v6.xdb",
+      "path": "vendor/ip2region_v6.xdb",
+      "sha256": "939f6b46bd2b8bec3cf7c5ceb8ba782266ae9b1f35b5ba7916700dec0b7506ed",
+      "bytes": 37277813
+    }
+  ]
+}

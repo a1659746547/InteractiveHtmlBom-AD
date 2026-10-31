@@ -1,0 +1,10 @@
+/* Keep the progress summary on one line; use the full BOM as the denominator. */
+#board-progress-tools{display:grid;grid-template-columns:auto minmax(28px,1fr) auto;align-items:center;gap:12px;box-sizing:border-box;min-height:42px;padding:6px 14px}
+#board-progress-counts{min-width:0;white-space:nowrap;font-size:12px;font-weight:500;color:var(--ui-muted)}
+#board-progress-tools .board-progress-bar{min-width:0;margin:0;gap:0}
+#board-progress-tools .board-progress-bar progress{height:4px}
+#board-progress-percent{display:none}
+#board-export-open{box-sizing:border-box;min-height:28px;height:28px;padding:4px 10px;line-height:18px;font-size:12px}
+body.embedded-viewer #top::before{display:none;content:none}
+@media screen and (max-width:1024px){#board-progress-tools{gap:10px;min-height:46px;padding:5px 12px}#board-export-open{min-height:36px;height:36px;padding:6px 10px}}
+@media print{#board-progress-tools{grid-template-columns:auto minmax(28px,1fr)}}
